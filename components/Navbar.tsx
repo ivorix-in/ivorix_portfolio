@@ -7,13 +7,7 @@ export default function Navbar() {
       <div className="navbar-inner">
         {/* Logo */}
         <Link href="/" className="logo">
-          <span className="logo-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="8" fill="#6366f1" />
-              <path d="M7 14h14M14 7v14" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className="logo-text">IntelliAgent</span>
+<span className="logo-text">Ivorix</span>
         </Link>
 
         {/* Nav Links */}
@@ -25,7 +19,19 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <Link href="#" className="login-btn">Login</Link>
+        <Link href="#" className="login-btn" style={{
+          display: "inline-block",
+          background: "linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%)",
+          color: "#fff",
+          fontSize: "13px",
+          fontWeight: 600,
+          padding: "9px 28px",
+          borderRadius: "10px",
+          textDecoration: "none",
+          letterSpacing: "0.4px",
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 14px rgba(0,0,0,0.35)",
+        }}>Login</Link>
       </div>
 
       <style jsx>{`
@@ -35,7 +41,7 @@ export default function Navbar() {
           left: 50%;
           transform: translateX(-50%);
           width: calc(100% - 48px);
-          max-width: 820px;
+          max-width: 960px;
           z-index: 100;
         }
 
@@ -43,12 +49,13 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: rgba(255, 255, 255, 0.85);
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(255, 255, 255, 0.9);
+          background: rgba(255, 255, 255, 0.45);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.7);
           border-radius: 16px;
           padding: 12px 20px;
-          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
         }
 
         .logo {
@@ -86,18 +93,29 @@ export default function Navbar() {
         }
 
         .login-btn {
-          background: #111;
+          display: inline-block;
+          background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
           color: #fff;
           font-size: 13px;
           font-weight: 600;
-          padding: 8px 20px;
+          padding: 9px 28px;
           border-radius: 10px;
           text-decoration: none;
-          transition: background 0.2s;
+          letter-spacing: 0.4px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 14px rgba(0,0,0,0.35);
+          transition: box-shadow 0.2s, transform 0.15s, background 0.2s;
         }
 
         .login-btn:hover {
-          background: #333;
+          background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+          box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 6px 20px rgba(0,0,0,0.45);
+          transform: translateY(-1px);
+        }
+
+        .login-btn:active {
+          transform: translateY(0);
+          box-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 640px) {
