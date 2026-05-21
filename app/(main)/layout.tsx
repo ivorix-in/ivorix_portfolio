@@ -3,5 +3,9 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <main className="min-h-screen bg-[#f8f8f8]">
+      {children}
+    </main>
+  );
 }
