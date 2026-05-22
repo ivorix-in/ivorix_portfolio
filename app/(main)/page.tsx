@@ -6,6 +6,8 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/Navbar';
 import FeaturesSection from './components/FeaturesSection';
 import StepsSection from './components/StepsSection';
+import IndustriesSection from './components/IndustriesSection';
+
 export default function Home() {
   return (
     <main>
@@ -13,6 +15,7 @@ export default function Home() {
     <Hero />
     <FeaturesSection/>
     <StepsSection/>
+    <IndustriesSection/>
     <TestimonialSection/>
     <PricingSection/>
     <FAQSection/>
