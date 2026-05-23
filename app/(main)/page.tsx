@@ -7,12 +7,14 @@ import Navbar from '@/components/Navbar';
 import FeaturesSection from './components/FeaturesSection';
 import StepsSection from './components/StepsSection';
 import IndustriesSection from './components/IndustriesSection';
+import AboutSection from './components/AboutSection';
 
 export default function Home() {
   return (
     <main>
     <Navbar />
     <Hero />
+    <AboutSection/>
     <FeaturesSection/>
     <StepsSection/>
     <IndustriesSection/>
