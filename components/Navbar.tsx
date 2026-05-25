@@ -12,7 +12,17 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <ul className="nav-links">
-          <li><Link href="#">About</Link></li>
+          <li>
+            <button
+              onClick={() => {
+                document.getElementById("about")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              About
+            </button>
+          </li>
           <li><Link href="#">Use Cases</Link></li>
           <li><Link href="#">Blog</Link></li>
           <li><Link href="#">Pricing</Link></li>
@@ -117,6 +127,24 @@ export default function Navbar() {
           transform: translateY(0);
           box-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
+
+
+        .nav-links a,
+        .nav-links button {
+          font-size: 14px;
+          font-weight: 500;
+          color: #444;
+          text-decoration: none;
+          transition: color 0.2s;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links button:hover {
+          color: #111;
+}
 
         @media (max-width: 640px) {
           .nav-links {

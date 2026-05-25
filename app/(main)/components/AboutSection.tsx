@@ -444,7 +444,7 @@ function CTABanner() {
 // ─────────────────────────────────────────────────────────────────────────────
 export default function AboutSection() {
   return (
-    <section className="bg-white w-full py-12">
+    <section className="bg-white w-full py-12" id="about">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <StatsBanner />
         <MissionHeader />
