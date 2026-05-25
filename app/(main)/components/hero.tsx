@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
+import ScrollAnimation from "@/components/ScrollVelocity/ScrollVelocity.jsx";
 export default function Hero() {
   return (
     <section className="hero">
@@ -20,13 +20,18 @@ export default function Hero() {
           <span className="icon-inline">
             <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
               <rect width="42" height="42" rx="10" fill="#6366f1" />
-              <path d="M10 22l8 8 14-16" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M10 22l8 8 14-16"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </span>{" "}
           Workflows
           <br />
-          That Power Your{" "}
-          <span className="highlight">AI Agents</span>
+          That Power Your <span className="highlight">AI Agents</span>
         </h1>
 
         {/* Subtext */}
@@ -36,7 +41,9 @@ export default function Hero() {
         </p>
 
         {/* CTA */}
-        <Link href="#" className="cta-btn">Get Started Free</Link>
+        <Link href="#" className="cta-btn">
+          Get Started Free
+        </Link>
 
         {/* Floating UI cards */}
         <div className="hero-visual">
@@ -61,11 +68,16 @@ export default function Hero() {
           <div className="card card-calendar">
             <div className="cal-header">January 2026</div>
             <div className="cal-grid">
-              {["M","T","W","T","F","S","S"].map((d, i) => (
-                <span key={i} className="cal-day-label">{d}</span>
+              {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+                <span key={i} className="cal-day-label">
+                  {d}
+                </span>
               ))}
               {Array.from({ length: 31 }, (_, i) => (
-                <span key={i} className={`cal-day ${i + 1 === 20 ? "active" : ""}`}>
+                <span
+                  key={i}
+                  className={`cal-day ${i + 1 === 20 ? "active" : ""}`}
+                >
                   {i + 1}
                 </span>
               ))}
@@ -74,17 +86,22 @@ export default function Hero() {
         </div>
 
         {/* Brand logos */}
-        <div className="brands">
-          {["TechCorp", "InnovateAI", "CloudBase", "DataFlow", "AutoMa"].map((b) => (
-            <span key={b} className="brand-name">{b}</span>
-          ))}
-        </div>
+      <ScrollAnimation
+  texts={["TechCorp • InnovateAI • CloudBase • DataFlow • AutoMate"] as any}
+  velocity={30}
+  numCopies={4}
+/>
       </div>
 
       <style jsx>{`
         .hero {
           min-height: 100vh;
-          background: linear-gradient(160deg, #eef2ff 0%, #e0e7ff 40%, #dde6f5 100%);
+          background: linear-gradient(
+            160deg,
+            #eef2ff 0%,
+            #e0e7ff 40%,
+            #dde6f5 100%
+          );
           display: flex;
           align-items: flex-start;
           padding-top: 120px;
@@ -109,10 +126,20 @@ export default function Hero() {
           font-size: 13px;
         }
 
-        .stars { color: #f59e0b; letter-spacing: 2px; }
-        .trustpilot { color: #555; font-weight: 500; }
-        .divider { color: #ccc; }
-        .score { color: #555; }
+        .stars {
+          color: #f59e0b;
+          letter-spacing: 2px;
+        }
+        .trustpilot {
+          color: #555;
+          font-weight: 500;
+        }
+        .divider {
+          color: #ccc;
+        }
+        .score {
+          color: #555;
+        }
 
         .headline {
           font-size: clamp(36px, 6vw, 64px);
@@ -153,7 +180,9 @@ export default function Hero() {
           padding: 14px 32px;
           border-radius: 12px;
           text-decoration: none;
-          transition: background 0.2s, transform 0.2s;
+          transition:
+            background 0.2s,
+            transform 0.2s;
         }
 
         .cta-btn:hover {
@@ -175,18 +204,22 @@ export default function Hero() {
         .robot-glow {
           width: 200px;
           height: 260px;
-          background: radial-gradient(ellipse at center, rgba(99,102,241,0.25) 0%, transparent 70%);
+          background: radial-gradient(
+            ellipse at center,
+            rgba(99, 102, 241, 0.25) 0%,
+            transparent 70%
+          );
           border-radius: 50%;
           position: absolute;
         }
 
         .card {
           position: absolute;
-          background: rgba(255,255,255,0.75);
+          background: rgba(255, 255, 255, 0.75);
           backdrop-filter: blur(12px);
-          border: 1px solid rgba(255,255,255,0.9);
+          border: 1px solid rgba(255, 255, 255, 0.9);
           border-radius: 16px;
-          box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
           padding: 16px;
         }
 
@@ -274,7 +307,7 @@ export default function Hero() {
           flex-wrap: wrap;
           justify-content: center;
           padding-top: 12px;
-          border-top: 1px solid rgba(0,0,0,0.08);
+          border-top: 1px solid rgba(0, 0, 0, 0.08);
           width: 100%;
         }
 
