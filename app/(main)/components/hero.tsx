@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import ScrollAnimation from "@/components/ScrollVelocity/ScrollVelocity.jsx";
+
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-container">
+
         {/* Rating badge */}
         <div className="rating-badge">
           <span className="stars">★★★★</span>
@@ -31,7 +34,11 @@ export default function Hero() {
           </span>{" "}
           Workflows
           <br />
-          That Power Your <span className="highlight">AI Agents</span>
+          That Power Your{" "}
+          <span className="highlight">
+            AI Agents
+            <span className="cursor-blink" />
+          </span>
         </h1>
 
         {/* Subtext */}
@@ -47,7 +54,8 @@ export default function Hero() {
 
         {/* Floating UI cards */}
         <div className="hero-visual">
-          {/* Chart card */}
+
+          {/* Chart card — bottom left */}
           <div className="card card-chart">
             <div className="card-label">Growth</div>
             <div className="card-amount">$1,823.00</div>
@@ -61,47 +69,72 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Robot / AI visual placeholder */}
-          <div className="robot-glow"></div>
+          {/* CENTER 3D IMAGE — place your image at /public/hero-3d.png */}
+          <div className="center-image-wrap">
+            <Image
+              src="/hero-3d.png"
+              alt="AI 3D Visual"
+              fill
+              style={{ objectFit: "contain" }}
+              priority
+            />
+          </div>
 
-          {/* Calendar card */}
+          {/* Calendar card — top right */}
           <div className="card card-calendar">
             <div className="cal-header">January 2026</div>
             <div className="cal-grid">
               {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-                <span key={i} className="cal-day-label">
+                <span key={i} className={`cal-day-label${i >= 5 ? " red" : ""}`}>
                   {d}
                 </span>
               ))}
-              {Array.from({ length: 31 }, (_, i) => (
-                <span
-                  key={i}
-                  className={`cal-day ${i + 1 === 20 ? "active" : ""}`}
-                >
-                  {i + 1}
-                </span>
-              ))}
+              {Array.from({ length: 31 }, (_, i) => {
+                const n = i + 1;
+                const isRed = [4, 5, 11, 12, 18, 19, 25, 26].includes(n);
+                return (
+                  <span
+                    key={i}
+                    className={`cal-day${n === 20 ? " active" : ""}${isRed && n !== 20 ? " red" : ""}`}
+                  >
+                    {n}
+                  </span>
+                );
+              })}
             </div>
           </div>
+
         </div>
 
-        {/* Brand logos */}
-      <ScrollAnimation
-  texts={["TechCorp • InnovateAI • CloudBase • DataFlow • AutoMate"] as any}
-  velocity={30}
-  numCopies={4}
-/>
+        {/* Scroll ticker */}
+        <ScrollAnimation
+          texts={["TechCorp • InnovateAI • CloudBase • DataFlow • AutoMate"]}
+          velocity={30}
+          numCopies={4}
+        />
+
       </div>
 
       <style jsx>{`
+
+        /* ---- KEYFRAMES ---- */
+        @keyframes fadeDown {
+          from { opacity: 0; transform: translateY(-18px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50%       { opacity: 0; }
+        }
+
+        /* ---- HERO ---- */
         .hero {
           min-height: 100vh;
-          background: linear-gradient(
-            160deg,
-            #eef2ff 0%,
-            #e0e7ff 40%,
-            #dde6f5 100%
-          );
+          background: linear-gradient(160deg, #eef2ff 0%, #e0e7ff 40%, #dde6f5 100%);
           display: flex;
           align-items: flex-start;
           padding-top: 120px;
@@ -119,28 +152,22 @@ export default function Hero() {
           gap: 20px;
         }
 
+        /* ---- RATING BADGE ---- */
         .rating-badge {
           display: flex;
           align-items: center;
           gap: 8px;
           font-size: 13px;
+          opacity: 0;
+          animation: fadeDown 0.6s ease forwards;
+          animation-delay: 0.1s;
         }
+        .stars      { color: #f59e0b; letter-spacing: 2px; }
+        .trustpilot { color: #555; font-weight: 600; }
+        .divider    { color: #ccc; }
+        .score      { color: #555; }
 
-        .stars {
-          color: #f59e0b;
-          letter-spacing: 2px;
-        }
-        .trustpilot {
-          color: #555;
-          font-weight: 500;
-        }
-        .divider {
-          color: #ccc;
-        }
-        .score {
-          color: #555;
-        }
-
+        /* ---- HEADLINE ---- */
         .headline {
           font-size: clamp(36px, 6vw, 64px);
           font-weight: 800;
@@ -148,6 +175,9 @@ export default function Hero() {
           letter-spacing: -2px;
           line-height: 1.1;
           margin: 0;
+          opacity: 0;
+          animation: fadeDown 0.7s ease forwards;
+          animation-delay: 0.25s;
         }
 
         .icon-inline {
@@ -164,14 +194,31 @@ export default function Hero() {
           color: #6366f1;
         }
 
+        /* blinking cursor after AI Agents */
+        .cursor-blink {
+          display: inline-block;
+          width: 3px;
+          height: 0.82em;
+          background: #6366f1;
+          margin-left: 3px;
+          vertical-align: middle;
+          border-radius: 1px;
+          animation: blink 1s step-end infinite;
+        }
+
+        /* ---- SUBTEXT ---- */
         .subtext {
           font-size: 15px;
           color: #555;
           max-width: 480px;
           line-height: 1.65;
           margin: 0;
+          opacity: 0;
+          animation: fadeDown 0.8s ease forwards;
+          animation-delay: 0.4s;
         }
 
+        /* ---- CTA ---- */
         .cta-btn {
           background: #0f0f0f;
           color: #fff;
@@ -180,91 +227,96 @@ export default function Hero() {
           padding: 14px 32px;
           border-radius: 12px;
           text-decoration: none;
-          transition:
-            background 0.2s,
-            transform 0.2s;
+          transition: background 0.2s, transform 0.2s;
+          opacity: 0;
+          animation: fadeDown 0.9s ease forwards;
+          animation-delay: 0.55s;
         }
-
         .cta-btn:hover {
           background: #333;
           transform: translateY(-1px);
         }
 
-        /* Visual section */
+        /* ---- VISUAL AREA ---- */
         .hero-visual {
           position: relative;
           width: 100%;
-          height: 300px;
+          height: 420px;
           margin-top: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
+          opacity: 0;
+          animation: fadeUp 1s ease forwards;
+          animation-delay: 0.7s;
         }
 
-        .robot-glow {
-          width: 200px;
-          height: 260px;
-          background: radial-gradient(
-            ellipse at center,
-            rgba(99, 102, 241, 0.25) 0%,
-            transparent 70%
-          );
-          border-radius: 50%;
+        /* ---- CENTER 3D IMAGE ---- */
+        .center-image-wrap {
           position: absolute;
+          width: 360px;
+          height: 410px;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          pointer-events: none;
         }
 
+        /* ---- GLASS CARDS ---- */
         .card {
           position: absolute;
           background: rgba(255, 255, 255, 0.75);
           backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
           border: 1px solid rgba(255, 255, 255, 0.9);
           border-radius: 16px;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
           padding: 16px;
+          z-index: 3;
         }
 
+        /* chart card */
         .card-chart {
           left: 0;
-          bottom: 0;
+          bottom: 20px;
           width: 160px;
         }
-
         .card-label {
           font-size: 11px;
           color: #888;
           margin-bottom: 4px;
+          text-transform: uppercase;
+          font-weight: 600;
+          letter-spacing: 0.5px;
         }
-
         .card-amount {
           font-size: 18px;
           font-weight: 700;
           color: #111;
           margin-bottom: 12px;
         }
-
         .chart-bars {
           display: flex;
           gap: 5px;
           align-items: flex-end;
           height: 50px;
         }
-
         .bar {
           flex: 1;
           background: #c7d7fb;
           border-radius: 4px 4px 0 0;
         }
-
         .bar.active {
           background: #6366f1;
         }
 
+        /* calendar card */
         .card-calendar {
           right: 0;
-          top: 0;
-          width: 200px;
+          top: 20px;
+          width: 210px;
         }
-
         .cal-header {
           font-size: 12px;
           font-weight: 700;
@@ -272,51 +324,33 @@ export default function Hero() {
           margin-bottom: 8px;
           text-align: center;
         }
-
         .cal-grid {
           display: grid;
           grid-template-columns: repeat(7, 1fr);
           gap: 3px;
           text-align: center;
         }
-
         .cal-day-label {
           font-size: 9px;
           font-weight: 600;
           color: #aaa;
           padding: 2px 0;
         }
-
+        .cal-day-label.red { color: #ef4444; }
         .cal-day {
           font-size: 9px;
           color: #555;
           padding: 3px 2px;
           border-radius: 4px;
         }
-
         .cal-day.active {
           background: #6366f1;
           color: white;
           font-weight: 700;
           border-radius: 50%;
         }
+        .cal-day.red { color: #ef4444; }
 
-        .brands {
-          display: flex;
-          gap: 32px;
-          flex-wrap: wrap;
-          justify-content: center;
-          padding-top: 12px;
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
-          width: 100%;
-        }
-
-        .brand-name {
-          font-size: 13px;
-          font-weight: 600;
-          color: #aaa;
-          letter-spacing: 0.5px;
-        }
       `}</style>
     </section>
   );
