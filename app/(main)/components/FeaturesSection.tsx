@@ -26,7 +26,7 @@ export default function FeaturesSection() {
         {/* Header */}
         <div className="text-center mb-20">
           {/* Badge */}
-          <div className={`inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-600 px-5 py-1.5 rounded-full text-sm font-medium mb-6 ${fade}`}>
+          <div className={`inline-flex items-center rounded-xl gap-2 bg-indigo-50 border border-indigo-100 text-indigo-600 px-5 py-1.5 rounded-full text-sm font-medium mb-6 ${fade}`}>
             <div className="w-2 h-2 bg-indigo-600 rounded-full" />
             Features
           </div>

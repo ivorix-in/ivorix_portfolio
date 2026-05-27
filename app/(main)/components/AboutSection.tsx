@@ -43,9 +43,9 @@ interface FadeProps {
   children: React.ReactNode;
 }
 interface StatItem {
-  [x: string]: ReactNode;
   icon: React.ReactNode;
-  value: string;
+  value: number;
+  suffix: string;
   label: string;
 }
 interface BeliefItem {
@@ -80,7 +80,7 @@ function useVisible(threshold = 0.1) {
       ([e]) => {
         if (e.isIntersecting) setVisible(true);
       },
-      { threshold },
+      { threshold }
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -93,16 +93,7 @@ function useVisible(threshold = 0.1) {
 // ─────────────────────────────────────────────────────────────────────────────
 const Icon = {
   Users: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
       <circle cx="9" cy="7" r="4" />
       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -110,32 +101,14 @@ const Icon = {
     </svg>
   ),
   Briefcase: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="7" width="20" height="14" rx="2" />
       <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
       <path d="M2 12h20" />
     </svg>
   ),
   Calendar: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="4" width="18" height="18" rx="2" />
       <line x1="16" y1="2" x2="16" y2="6" />
       <line x1="8" y1="2" x2="8" y2="6" />
@@ -143,92 +116,38 @@ const Icon = {
     </svg>
   ),
   Globe: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <line x1="2" y1="12" x2="22" y2="12" />
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
   Lightbulb: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <line x1="9" y1="18" x2="15" y2="18" />
       <line x1="10" y1="22" x2="14" y2="22" />
       <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
     </svg>
   ),
   Shield: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   ),
   Target: () => (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <circle cx="12" cy="12" r="6" />
       <circle cx="12" cy="12" r="2" />
     </svg>
   ),
   Check: () => (
-    <svg
-      width="10"
-      height="10"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="3.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="20 6 9 17 4 12" />
     </svg>
   ),
   ArrowRight: () => (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
       <line x1="5" y1="12" x2="19" y2="12" />
       <polyline points="12 5 19 12 12 19" />
     </svg>
@@ -258,8 +177,7 @@ function Sphere({ size, style }: { size: number; style: React.CSSProperties }) {
       style={{
         width: size,
         height: size,
-        background:
-          "radial-gradient(circle at 32% 30%, #c7d2fe 0%, #818cf8 55%, #6366f1 100%)",
+        background: "radial-gradient(circle at 32% 30%, #c7d2fe 0%, #818cf8 55%, #6366f1 100%)",
         boxShadow: `0 4px 18px rgba(99,102,241,0.32)`,
         ...style,
       }}
@@ -270,11 +188,6 @@ function Sphere({ size, style }: { size: number; style: React.CSSProperties }) {
 /** Fluid-scaling 3-D glassmorphic cube */
 function IvorxCube() {
   return (
-    /*
-      The outer wrapper uses a percentage-based padding trick for aspect-ratio
-      on older browsers, plus max-w to cap on large screens.
-      On mobile (<360 px) the w-full + max-w-[300px] keeps it contained.
-    */
     <div
       className="relative w-full max-w-[300px] sm:max-w-[340px] mx-auto select-none"
       style={{ aspectRatio: "1 / 1" }}
@@ -284,20 +197,14 @@ function IvorxCube() {
         className="absolute inset-0 rounded-full border border-indigo-200/45 pointer-events-none"
         style={{ animation: "orbitCW 20s linear infinite" }}
       >
-        <Sphere
-          size={13}
-          style={{ top: -6.5, left: "50%", transform: "translateX(-50%)" }}
-        />
+        <Sphere size={13} style={{ top: -6.5, left: "50%", transform: "translateX(-50%)" }} />
         <Sphere size={9} style={{ bottom: -4.5, right: "14%" }} />
       </div>
 
       {/* Inner orbit ring */}
       <div
         className="absolute rounded-full border border-indigo-200/30 pointer-events-none"
-        style={{
-          inset: "14%",
-          animation: "orbitCCW 14s linear infinite",
-        }}
+        style={{ inset: "14%", animation: "orbitCCW 14s linear infinite" }}
       >
         <Sphere size={8} style={{ top: -4, right: "18%" }} />
       </div>
@@ -308,8 +215,7 @@ function IvorxCube() {
         style={{
           width: "60%",
           height: "5%",
-          background:
-            "radial-gradient(ellipse, rgba(165,180,252,0.45) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(165,180,252,0.45) 0%, transparent 70%)",
           filter: "blur(4px)",
         }}
       />
@@ -318,8 +224,7 @@ function IvorxCube() {
         style={{
           width: "48%",
           height: "4%",
-          background:
-            "radial-gradient(ellipse, rgba(199,210,254,0.55) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(199,210,254,0.55) 0%, transparent 70%)",
           filter: "blur(3px)",
         }}
       />
@@ -330,8 +235,7 @@ function IvorxCube() {
         style={{
           inset: "22%",
           borderRadius: "18%",
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(224,231,255,0.62) 50%, rgba(199,210,254,0.50) 100%)",
+          background: "linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(224,231,255,0.62) 50%, rgba(199,210,254,0.50) 100%)",
           border: "1.5px solid rgba(255,255,255,0.82)",
           boxShadow: [
             "0 24px 64px rgba(99,102,241,0.20)",
@@ -349,27 +253,19 @@ function IvorxCube() {
           className="absolute inset-0 pointer-events-none"
           style={{
             borderRadius: "inherit",
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.50) 0%, transparent 50%)",
+            background: "linear-gradient(135deg, rgba(255,255,255,0.50) 0%, transparent 50%)",
           }}
         />
 
         {/* Ivorx mark + wordmark */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
           <svg viewBox="0 0 36 36" fill="none" className="w-[36%] h-auto">
-            <path
-              d="M18 4L3 32H13L18 20L23 32H33L18 4Z"
-              fill="#4f46e5"
-              opacity="0.92"
-            />
+            <path d="M18 4L3 32H13L18 20L23 32H33L18 4Z" fill="#4f46e5" opacity="0.92" />
             <path d="M13 32L18 22L23 32" fill="white" opacity="0.48" />
           </svg>
           <span
             className="font-bold text-indigo-700 leading-none"
-            style={{
-              fontSize: "clamp(9px, 3.5%, 14px)",
-              letterSpacing: "-0.2px",
-            }}
+            style={{ fontSize: "clamp(9px, 3.5%, 14px)", letterSpacing: "-0.2px" }}
           >
             ivorx
           </span>
@@ -383,8 +279,7 @@ function IvorxCube() {
             height: "100%",
             right: "-12%",
             borderRadius: "0 12% 12% 0",
-            background:
-              "linear-gradient(180deg, rgba(165,180,252,0.38) 0%, rgba(129,140,248,0.22) 100%)",
+            background: "linear-gradient(180deg, rgba(165,180,252,0.38) 0%, rgba(129,140,248,0.22) 100%)",
             transform: "skewY(-6deg)",
             transformOrigin: "top left",
           }}
@@ -397,8 +292,7 @@ function IvorxCube() {
             height: "15%",
             bottom: "-12%",
             borderRadius: "0 0 12% 12%",
-            background:
-              "linear-gradient(90deg, rgba(165,180,252,0.30) 0%, rgba(129,140,248,0.18) 100%)",
+            background: "linear-gradient(90deg, rgba(165,180,252,0.30) 0%, rgba(129,140,248,0.18) 100%)",
             transform: "skewX(-6deg)",
             transformOrigin: "top left",
           }}
@@ -406,22 +300,8 @@ function IvorxCube() {
       </div>
 
       {/* Extra ambient spheres */}
-      <Sphere
-        size={15}
-        style={{
-          top: "10%",
-          left: "5%",
-          animation: "floatCube 5.5s ease-in-out infinite 0.6s",
-        }}
-      />
-      <Sphere
-        size={8}
-        style={{
-          bottom: "20%",
-          right: "6%",
-          animation: "floatCube 4s ease-in-out infinite 1.2s",
-        }}
-      />
+      <Sphere size={15} style={{ top: "10%", left: "5%", animation: "floatCube 5.5s ease-in-out infinite 0.6s" }} />
+      <Sphere size={8} style={{ bottom: "20%", right: "6%", animation: "floatCube 4s ease-in-out infinite 1.2s" }} />
     </div>
   );
 }
@@ -434,30 +314,24 @@ function HeroSection() {
     <div
       ref={ref}
       className="w-full"
-      style={{
-        background:
-          "linear-gradient(155deg, #f7f8ff 0%, #eef1fd 55%, #f4f6ff 100%)",
-      }}
+      style={{ background: "linear-gradient(155deg, #f7f8ff 0%, #eef1fd 55%, #f4f6ff 100%)" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-14 sm:py-16 lg:py-20">
+
           {/* ── Left ── */}
           <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
             <FadeUp visible={visible} delay={0} className="mb-5">
-              <span
-                className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold
+              <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold
                 text-blue-600 bg-white border border-blue-100/80 rounded-full px-3.5 py-1.5
-                shadow-sm shadow-blue-100/40"
-              >
+                shadow-sm shadow-blue-100/40">
                 About Ivorx
               </span>
             </FadeUp>
 
             <FadeUp visible={visible} delay={80}>
-              <h1
-                className="font-bold text-slate-900 leading-[1.12] tracking-tight mb-5
-                text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl"
-              >
+              <h1 className="font-bold text-slate-900 leading-[1.12] tracking-tight mb-5
+                text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl">
                 We Build Technology
                 <br className="hidden sm:block" /> That Moves Businesses{" "}
                 <span className="text-blue-600">Forward</span>
@@ -465,13 +339,10 @@ function HeroSection() {
             </FadeUp>
 
             <FadeUp visible={visible} delay={160}>
-              <p
-                className="text-sm sm:text-[15px] text-slate-500 leading-relaxed mb-8
-                max-w-md mx-auto lg:mx-0"
-              >
-                Ivorx is an IT solutions company focused on delivering
-                innovative, reliable, and scalable digital products that help
-                businesses grow and succeed in the digital world.
+              <p className="text-sm sm:text-[15px] text-slate-500 leading-relaxed mb-8
+                max-w-md mx-auto lg:mx-0">
+                Ivorx is an IT solutions company focused on delivering innovative, reliable,
+                and scalable digital products that help businesses grow and succeed in the digital world.
               </p>
             </FadeUp>
 
@@ -489,9 +360,7 @@ function HeroSection() {
                   Our Story
                   <span
                     className="transition-transform duration-200"
-                    style={{
-                      transform: btnHover ? "translateX(4px)" : "translateX(0)",
-                    }}
+                    style={{ transform: btnHover ? "translateX(4px)" : "translateX(0)" }}
                   >
                     <Icon.ArrowRight />
                   </span>
@@ -517,21 +386,11 @@ function HeroSection() {
 // ─────────────────────────────────────────────────────────────────────────────
 // ── STATS BANNER ─────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
-const STATS = [
-  { icon: <Icon.Users />, value: 50, suffix: "+", label: "Happy Clients" },
-  {
-    icon: <Icon.Briefcase />,
-    value: 120,
-    suffix: "+",
-    label: "Projects Delivered",
-  },
-  {
-    icon: <Icon.Calendar />,
-    value: 10,
-    suffix: "+",
-    label: "Years of Experience",
-  },
-  { icon: <Icon.Globe />, value: 15, suffix: "+", label: "Countries Served" },
+const STATS: StatItem[] = [
+  { icon: <Icon.Users />,     value: 50,  suffix: "+", label: "Happy Clients"       },
+  { icon: <Icon.Briefcase />, value: 120, suffix: "+", label: "Projects Delivered"  },
+  { icon: <Icon.Calendar />,  value: 10,  suffix: "+", label: "Years of Experience" },
+  { icon: <Icon.Globe />,     value: 15,  suffix: "+", label: "Countries Served"    },
 ];
 
 function StatsBanner() {
@@ -541,10 +400,6 @@ function StatsBanner() {
       ref={ref}
       className={`w-full bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden ${fu(visible)}`}
     >
-      {/*
-        Mobile:  2×2 grid, dividers via border-b / border-r per cell
-        Desktop: 1×4 row, divide-x
-      */}
       <div className="grid grid-cols-2 lg:grid-cols-4">
         {STATS.map((s, i) => (
           <div
@@ -552,13 +407,15 @@ function StatsBanner() {
             className={[
               "flex items-center gap-3 sm:gap-4 px-5 sm:px-7 py-5 sm:py-6",
               fu(visible, i * 70),
-              // Mobile right-border on col-0, bottom-border on row-0
               i % 2 === 0 ? "border-r border-slate-100" : "",
               i < 2 ? "border-b border-slate-100 lg:border-b-0" : "",
-              // Desktop right-border on all except last
               i < 3 ? "lg:border-r lg:border-slate-100" : "",
             ].join(" ")}
           >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50/70 flex-shrink-0
+              flex items-center justify-center text-blue-600 shadow-sm shadow-blue-100/30">
+              {s.icon}
+            </div>
             <div>
               <p className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 leading-none flex items-center">
                 <CountUp
@@ -572,7 +429,6 @@ function StatsBanner() {
                 />
                 <span>{s.suffix}</span>
               </p>
-
               <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-1">
                 {s.label}
               </p>
@@ -592,15 +448,13 @@ function MissionHeader() {
   return (
     <div ref={ref} className={`text-center pt-4 pb-2 ${fu(visible)}`}>
       <Badge>Our Mission</Badge>
-      <h2
-        className="font-bold text-slate-900 tracking-tight
-        text-2xl sm:text-3xl md:text-4xl leading-tight"
-      >
+      <h2 className="font-bold text-slate-900 tracking-tight
+        text-2xl sm:text-3xl md:text-4xl leading-tight">
         Technology with Purpose
       </h2>
       <p className="text-sm sm:text-[15px] text-slate-500 max-w-lg mx-auto mt-4 leading-relaxed">
-        We use technology and creativity to solve real problems and create
-        digital solutions that make a lasting impact.
+        We use technology and creativity to solve real problems and create digital solutions
+        that make a lasting impact.
       </p>
     </div>
   );
@@ -610,26 +464,10 @@ function MissionHeader() {
 // ── BELIEFS GRID ─────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
 const BELIEFS: BeliefItem[] = [
-  {
-    icon: <Icon.Lightbulb />,
-    title: "Innovation",
-    desc: "We embrace new ideas and build future-ready solutions.",
-  },
-  {
-    icon: <Icon.Shield />,
-    title: "Integrity",
-    desc: "We work with honesty, transparency, and strong ethics.",
-  },
-  {
-    icon: <Icon.Users />,
-    title: "Collaboration",
-    desc: "We believe in teamwork and growing together with our clients.",
-  },
-  {
-    icon: <Icon.Target />,
-    title: "Impact",
-    desc: "We focus on delivering solutions that create real business value.",
-  },
+  { icon: <Icon.Lightbulb />, title: "Innovation",    desc: "We embrace new ideas and build future-ready solutions."            },
+  { icon: <Icon.Shield />,    title: "Integrity",     desc: "We work with honesty, transparency, and strong ethics."            },
+  { icon: <Icon.Users />,     title: "Collaboration", desc: "We believe in teamwork and growing together with our clients."     },
+  { icon: <Icon.Target />,    title: "Impact",        desc: "We focus on delivering solutions that create real business value." },
 ];
 
 function BeliefsGrid() {
@@ -652,12 +490,10 @@ function BeliefsGrid() {
             ].join(" ")}
             style={{ transitionDuration: "600ms", transitionProperty: "all" }}
           >
-            <div
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl
               bg-blue-50/70 border border-blue-100/50
               flex items-center justify-center mb-4 sm:mb-5 text-blue-600
-              shadow-sm shadow-blue-100/30"
-            >
+              shadow-sm shadow-blue-100/30">
               {b.icon}
             </div>
             <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 sm:mb-2">
@@ -693,7 +529,7 @@ function IvorxMark() {
 /** Concentric dashed rings with node dots, coordinates computed via trig */
 function OrbitRings() {
   const rings = [
-    { size: 152, nodes: [30, 150, 275], dotPx: 5, cls: "border-slate-200" },
+    { size: 152, nodes: [30, 150, 275], dotPx: 5, cls: "border-slate-200"    },
     { size: 220, nodes: [65, 185, 305], dotPx: 6, cls: "border-slate-200/60" },
   ];
   return (
@@ -705,9 +541,9 @@ function OrbitRings() {
           style={{ width: r.size, height: r.size }}
         >
           {r.nodes.map((deg) => {
-            const rad = (deg * Math.PI) / 180;
+            const rad  = (deg * Math.PI) / 180;
             const half = r.size / 2;
-            const dr = r.dotPx / 2;
+            const dr   = r.dotPx / 2;
             return (
               <div
                 key={deg}
@@ -715,8 +551,8 @@ function OrbitRings() {
                 style={{
                   width: r.dotPx,
                   height: r.dotPx,
-                  left: half + half * Math.cos(rad) - dr,
-                  top: half + half * Math.sin(rad) - dr,
+                  left:  half + half * Math.cos(rad) - dr,
+                  top:   half + half * Math.sin(rad) - dr,
                   animation: `pulseDot 3s ease-in-out infinite ${deg * 8}ms`,
                 }}
               />
@@ -746,44 +582,33 @@ function WhyChoosePanel() {
         >
           <OrbitRings />
           {/* Central icon tile */}
-          <div
-            className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-[1.75rem]
+          <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-[1.75rem]
             flex items-center justify-center
             border border-slate-100/70
-            shadow-[0_12px_40px_rgba(99,102,241,0.10),0_2px_8px_rgba(0,0,0,0.04)]"
-          >
+            shadow-[0_12px_40px_rgba(99,102,241,0.10),0_2px_8px_rgba(0,0,0,0.04)]">
             <IvorxMark />
           </div>
         </div>
       </div>
 
       {/* ── Right: copy + checklist ── */}
-      <div
-        className={`lg:col-span-7 text-left flex flex-col justify-center ${fu(visible, 130)}`}
-      >
+      <div className={`lg:col-span-7 text-left flex flex-col justify-center ${fu(visible, 130)}`}>
         <Badge>Why Choose Ivorx</Badge>
-        <h2
-          className="font-bold text-slate-900 tracking-tight mb-3
-          text-2xl sm:text-3xl lg:text-[1.9rem] xl:text-3xl leading-snug"
-        >
+        <h2 className="font-bold text-slate-900 tracking-tight mb-3
+          text-2xl sm:text-3xl lg:text-[1.9rem] xl:text-3xl leading-snug">
           Your Growth, Our Priority
         </h2>
         <p className="text-sm text-slate-500 leading-relaxed max-w-lg mb-6 sm:mb-7">
-          We combine expertise, technology, and a customer-first approach to
-          deliver solutions that drive growth and results.
+          We combine expertise, technology, and a customer-first approach to deliver
+          solutions that drive growth and results.
         </p>
 
         <ul className="space-y-3 sm:space-y-3.5">
           {CHECKLIST.map((item, i) => (
-            <li
-              key={i}
-              className={`flex items-center gap-3 ${fu(visible, 190 + i * 70)}`}
-            >
-              <span
-                className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full
+            <li key={i} className={`flex items-center gap-3 ${fu(visible, 190 + i * 70)}`}>
+              <span className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full
                 bg-blue-50 text-blue-600 border border-blue-100/70
-                shadow-sm shadow-blue-100/30"
-              >
+                shadow-sm shadow-blue-100/30">
                 <Icon.Check />
               </span>
               <span className="text-xs sm:text-[13px] font-medium text-slate-600 tracking-wide">
@@ -821,8 +646,7 @@ function ChatAsset() {
           bottom: 22,
           right: 0,
           borderRadius: 20,
-          background:
-            "linear-gradient(140deg, rgba(224,231,255,0.82) 0%, rgba(199,210,254,0.66) 100%)",
+          background: "linear-gradient(140deg, rgba(224,231,255,0.82) 0%, rgba(199,210,254,0.66) 100%)",
           border: "1px solid rgba(255,255,255,0.75)",
           boxShadow: "0 6px 24px rgba(99,102,241,0.10)",
           backdropFilter: "blur(8px)",
@@ -855,11 +679,9 @@ function ChatAsset() {
           bottom: 26,
           left: 0,
           borderRadius: 22,
-          background:
-            "linear-gradient(145deg, rgba(255,255,255,0.94) 0%, rgba(238,242,255,0.82) 100%)",
+          background: "linear-gradient(145deg, rgba(255,255,255,0.94) 0%, rgba(238,242,255,0.82) 100%)",
           border: "1px solid rgba(255,255,255,0.88)",
-          boxShadow:
-            "0 8px 32px rgba(99,102,241,0.12), 0 2px 6px rgba(0,0,0,0.04)",
+          boxShadow: "0 8px 32px rgba(99,102,241,0.12), 0 2px 6px rgba(0,0,0,0.04)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           transform: "rotate(-3deg)",
@@ -883,38 +705,12 @@ function ChatAsset() {
       </div>
 
       {/* Decorative spheres */}
-      {(
-        [
-          {
-            w: 18,
-            top: 8,
-            right: 18,
-            bg: "linear-gradient(135deg,#c7d2fe,#a5b4fc)",
-            sh: "0 3px 10px rgba(99,102,241,0.28)",
-          },
-          {
-            w: 10,
-            top: 58,
-            right: 5,
-            bg: "linear-gradient(135deg,#e0e7ff,#c7d2fe)",
-            sh: "0 2px 6px rgba(99,102,241,0.18)",
-          },
-          {
-            w: 8,
-            top: 26,
-            left: 8,
-            bg: "linear-gradient(135deg,#dbeafe,#bfdbfe)",
-            sh: "0 2px 5px rgba(59,130,246,0.18)",
-          },
-          {
-            w: 6,
-            bottom: 12,
-            left: 38,
-            bg: "linear-gradient(135deg,#ede9fe,#ddd6fe)",
-            sh: "0 1px 4px rgba(139,92,246,0.16)",
-          },
-        ] as const
-      ).map((s, i) => (
+      {([
+        { w: 18, top: 8,  right: 18,   bg: "linear-gradient(135deg,#c7d2fe,#a5b4fc)", sh: "0 3px 10px rgba(99,102,241,0.28)" },
+        { w: 10, top: 58, right: 5,    bg: "linear-gradient(135deg,#e0e7ff,#c7d2fe)", sh: "0 2px 6px rgba(99,102,241,0.18)"  },
+        { w: 8,  top: 26, left: 8,     bg: "linear-gradient(135deg,#dbeafe,#bfdbfe)", sh: "0 2px 5px rgba(59,130,246,0.18)"  },
+        { w: 6,  bottom: 12, left: 38, bg: "linear-gradient(135deg,#ede9fe,#ddd6fe)", sh: "0 1px 4px rgba(139,92,246,0.16)"  },
+      ] as const).map((s, i) => (
         <div
           key={i}
           className="absolute rounded-full"
@@ -937,8 +733,7 @@ function ChatAsset() {
         style={{
           width: 150,
           height: 14,
-          background:
-            "radial-gradient(ellipse, rgba(99,102,241,0.14) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(99,102,241,0.14) 0%, transparent 70%)",
           filter: "blur(5px)",
         }}
       />
@@ -957,29 +752,21 @@ function CTABanner() {
         p-8 sm:p-12 lg:p-14
         grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center
         ${fu(visible)}`}
-      style={{
-        background:
-          "linear-gradient(135deg, #EEF2FF 0%, rgba(240,249,255,0.12) 50%, #F5F3FF 100%)",
-      }}
+      style={{ background: "linear-gradient(135deg, #EEF2FF 0%, rgba(240,249,255,0.12) 50%, #F5F3FF 100%)" }}
     >
       {/* Ambient blobs */}
       <div className="absolute -right-6 -bottom-6 w-56 h-56 rounded-full bg-indigo-200/35 blur-3xl pointer-events-none" />
       <div className="absolute -left-10 top-0 w-48 h-48 rounded-full bg-blue-100/25 blur-3xl pointer-events-none" />
 
       {/* Left: text + button */}
-      <div
-        className={`lg:col-span-7 relative z-10 text-left ${fu(visible, 80)}`}
-      >
+      <div className={`lg:col-span-7 relative z-10 text-left ${fu(visible, 80)}`}>
         <Badge>Let's Build Something Great</Badge>
-        <h2
-          className="font-bold text-slate-900 tracking-tight mb-3
-          text-2xl sm:text-3xl leading-snug"
-        >
+        <h2 className="font-bold text-slate-900 tracking-tight mb-3
+          text-2xl sm:text-3xl leading-snug">
           Let's Create the Future Together
         </h2>
         <p className="text-slate-500 text-xs sm:text-sm leading-relaxed max-w-md mb-6 sm:mb-7">
-          Have a project in mind? We'd love to hear about it and help you bring
-          it to life.
+          Have a project in mind? We'd love to hear about it and help you bring it to life.
         </p>
 
         <button
@@ -1001,9 +788,7 @@ function CTABanner() {
       </div>
 
       {/* Right: chat illustration */}
-      <div
-        className={`lg:col-span-5 relative z-10 flex justify-center lg:justify-end ${fu(visible, 170)}`}
-      >
+      <div className={`lg:col-span-5 relative z-10 flex justify-center lg:justify-end ${fu(visible, 170)}`}>
         <ChatAsset />
       </div>
     </div>

@@ -83,35 +83,7 @@ const StepsSection = () => {
         </div>
 
         {/* Industries Section */}
-        <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 text-indigo-700 px-5 py-2 rounded-full text-sm font-medium mb-6">
-            <div className="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></div>
-            Industries
-          </div>
-
-          <h2 className="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-            Real Solutions Used 
-            <br />
-            Across{' '}
-            
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-extrabold">
-                Industries
-              </span>
-              {/* Selection Box */}
-              <span className="absolute -inset-[3px] border border-slate-400 rounded-md pointer-events-none"></span>
-              {/* Corner Handles */}
-              <span className="absolute -top-1 -left-1 w-2 h-2 bg-slate-900"></span>
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-slate-900"></span>
-              <span className="absolute -bottom-1 -left-1 w-2 h-2 bg-slate-900"></span>
-              <span className="absolute -bottom-1 -right-1 w-2 h-2 bg-slate-900"></span>
-            </span>
-          </h2>
-
-          <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto">
-            Our intelligent agents deliver proven results across industries by automating processes.
-          </p>
-        </div>
+    
       </div>
     </section>
   );
