@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import ScrollAnimation from "@/components/ScrollVelocity/ScrollVelocity.jsx";
+import heroImg from "@/public/homeImage/heroImg.jpg";
 
 export default function Hero() {
+  const dayLabels = ["M", "T", "W", "T", "F", "S", "S"];
+
   return (
     <section className="hero">
       <div className="hero-container">
 
-        {/* Rating badge */}
+        {/* TOP BADGE */}
         <div className="rating-badge">
           <span className="stars">★★★★</span>
           <span className="trustpilot">Trustpilot</span>
@@ -17,16 +19,16 @@ export default function Hero() {
           <span className="score">4.8 Reviews</span>
         </div>
 
-        {/* Headline */}
+        {/* HEADING */}
         <h1 className="headline">
           Design Smart{" "}
           <span className="icon-inline">
-            <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
-              <rect width="42" height="42" rx="10" fill="#6366f1" />
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <rect width="48" height="48" rx="12" fill="#6366f1" />
               <path
-                d="M10 22l8 8 14-16"
+                d="M12 25l9 9 15-18"
                 stroke="white"
-                strokeWidth="3"
+                strokeWidth="3.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -37,319 +39,737 @@ export default function Hero() {
           That Power Your{" "}
           <span className="highlight">
             AI Agents
-            <span className="cursor-blink" />
           </span>
         </h1>
 
-        {/* Subtext */}
+        {/* SUBTEXT */}
         <p className="subtext">
           Automate your daily tasks with smart AI agents designed to improve
           efficiency, reduce effort, and deliver faster results.
         </p>
 
-        {/* CTA */}
-        <Link href="#" className="cta-btn">
+        {/* BUTTON */}
+        <Link href="/" className="cta-btn">
           Get Started Free
         </Link>
 
-        {/* Floating UI cards */}
+        {/* VISUAL */}
         <div className="hero-visual">
 
-          {/* Chart card — bottom left */}
-          <div className="card card-chart">
-            <div className="card-label">Growth</div>
-            <div className="card-amount">$1,823.00</div>
-            <div className="chart-bars">
-              <div className="bar" style={{ height: "40%" }}></div>
-              <div className="bar" style={{ height: "60%" }}></div>
-              <div className="bar" style={{ height: "45%" }}></div>
-              <div className="bar active" style={{ height: "80%" }}></div>
-              <div className="bar" style={{ height: "55%" }}></div>
-              <div className="bar" style={{ height: "70%" }}></div>
+          {/* LEFT CARD */}
+          <div className="left-col">
+
+            <div className="card growth-card">
+              <div className="card-label">Growth</div>
+
+              <div className="card-amount">
+                $1,823.00
+              </div>
+
+              <div className="chart-bars">
+                <div className="bar" style={{ height: "40%" }} />
+                <div className="bar" style={{ height: "65%" }} />
+                <div className="bar" style={{ height: "50%" }} />
+                <div className="bar active" style={{ height: "90%" }} />
+                <div className="bar" style={{ height: "70%" }} />
+                <div className="bar" style={{ height: "55%" }} />
+              </div>
             </div>
+
           </div>
 
-          {/* CENTER 3D IMAGE — place your image at /public/hero-3d.png */}
+          {/* CENTER IMAGE */}
           <div className="center-image-wrap">
             <Image
-              src="/hero-3d.png"
-              alt="AI 3D Visual"
+              src={heroImg}
+              alt="AI Hero"
               fill
-              style={{ objectFit: "contain" }}
               priority
+              style={{ objectFit: "contain" }}
             />
           </div>
 
-          {/* Calendar card — top right */}
-          <div className="card card-calendar">
-            <div className="cal-header">January 2026</div>
-            <div className="cal-grid">
-              {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-                <span key={i} className={`cal-day-label${i >= 5 ? " red" : ""}`}>
-                  {d}
-                </span>
-              ))}
-              {Array.from({ length: 31 }, (_, i) => {
-                const n = i + 1;
-                const isRed = [4, 5, 11, 12, 18, 19, 25, 26].includes(n);
-                return (
-                  <span
-                    key={i}
-                    className={`cal-day${n === 20 ? " active" : ""}${isRed && n !== 20 ? " red" : ""}`}
-                  >
-                    {n}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
+          {/* RIGHT CARD */}
+          <div className="right-col">
 
+            <div className="card cal-card">
+
+              <div className="cal-header">
+                January 2026
+              </div>
+
+              <div className="cal-grid">
+
+                {dayLabels.map((d, i) => (
+                  <div
+                    key={i}
+                    className={`cal-day-label ${
+                      i >= 5 ? "red" : ""
+                    }`}
+                  >
+                    {d}
+                  </div>
+                ))}
+
+                <div />
+                <div />
+
+                {Array.from({ length: 31 }, (_, i) => {
+                  const n = i + 1;
+
+                  const isRed = [
+                    4, 5, 11, 12, 18, 19, 25, 26,
+                  ].includes(n);
+
+                  const isActive = n === 20;
+
+                  return (
+                    <div
+                      key={n}
+                      className={`cal-day 
+                      ${isRed ? "red" : ""}
+                      ${isActive ? "active" : ""}
+                    `}
+                    >
+                      {n}
+                    </div>
+                  );
+                })}
+
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        {/* Scroll ticker */}
-        <ScrollAnimation
-          texts={["TechCorp • InnovateAI • CloudBase • DataFlow • AutoMate"]}
-          velocity={30}
-          numCopies={4}
-        />
+        {/* TICKER */}
+        <div className="ticker-outer">
+          <div className="ticker-track">
+
+            {[...Array(6)].map((_, i) => (
+              <span key={i} className="ticker-set">
+                TechCorp <span className="dot">•</span>
+                InnovateAI <span className="dot">•</span>
+                CloudBase <span className="dot">•</span>
+                DataFlow <span className="dot">•</span>
+              </span>
+            ))}
+
+          </div>
+        </div>
 
       </div>
 
+      {/* CSS */}
+
       <style jsx>{`
 
-        /* ---- KEYFRAMES ---- */
-        @keyframes fadeDown {
-          from { opacity: 0; transform: translateY(-18px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(22px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50%       { opacity: 0; }
+        * {
+          box-sizing: border-box;
         }
 
-        /* ---- HERO ---- */
         .hero {
           min-height: 100vh;
-          background: linear-gradient(160deg, #eef2ff 0%, #e0e7ff 40%, #dde6f5 100%);
-          display: flex;
-          align-items: flex-start;
-          padding-top: 120px;
+
+          background:
+            radial-gradient(
+              circle at top,
+              rgba(99,102,241,0.12),
+              transparent 35%
+            ),
+            linear-gradient(
+              to bottom,
+              #f8f9ff,
+              #eef2ff
+            );
+
           overflow: hidden;
+          padding-top: 25px;
+          position: relative;
+        }
+
+        .hero::before {
+          content: "";
+
+          position: absolute;
+
+          width: 700px;
+          height: 700px;
+
+          background: rgba(99,102,241,0.08);
+
+          border-radius: 50%;
+
+          filter: blur(120px);
+
+          left: 50%;
+          top: 45%;
+
+          transform: translate(-50%, -50%);
+
+          z-index: 0;
+
+          animation: pulseBg 6s ease-in-out infinite;
         }
 
         .hero-container {
-          max-width: 820px;
-          margin: 0 auto;
-          padding: 0 24px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          position: relative;
+          z-index: 2;
+
+          max-width: 1150px;
+
+          margin: auto;
+
+          padding: 0 20px;
+
           text-align: center;
-          gap: 20px;
         }
 
-        /* ---- RATING BADGE ---- */
+        /* BADGE */
+
         .rating-badge {
           display: flex;
+          justify-content: center;
           align-items: center;
-          gap: 8px;
-          font-size: 13px;
-          opacity: 0;
-          animation: fadeDown 0.6s ease forwards;
-          animation-delay: 0.1s;
-        }
-        .stars      { color: #f59e0b; letter-spacing: 2px; }
-        .trustpilot { color: #555; font-weight: 600; }
-        .divider    { color: #ccc; }
-        .score      { color: #555; }
 
-        /* ---- HEADLINE ---- */
+          gap: 6px;
+
+          font-size: 12px;
+
+          margin-bottom: 18px;
+
+          animation: fadeUp 0.8s ease;
+        }
+
+        .stars {
+          color: orange;
+        }
+
+        .trustpilot {
+          font-weight: 700;
+        }
+
+        .divider {
+          color: #bbb;
+        }
+
+        .score {
+          color: #555;
+        }
+
+        /* TITLE */
+
         .headline {
-          font-size: clamp(36px, 6vw, 64px);
+          font-size: clamp(28px, 4vw, 54px);
+
+          line-height: 1.08;
+
           font-weight: 800;
-          color: #0f0f0f;
+
+          color: #111;
+
           letter-spacing: -2px;
-          line-height: 1.1;
-          margin: 0;
-          opacity: 0;
-          animation: fadeDown 0.7s ease forwards;
-          animation-delay: 0.25s;
+
+          margin: auto;
+
+          max-width: 720px;
+
+          animation: fadeUp 1s ease;
         }
 
         .icon-inline {
           display: inline-flex;
+
           vertical-align: middle;
-          margin: 0 4px;
+
           transform: translateY(-4px);
+
+          animation: floatIcon 3s ease-in-out infinite;
         }
 
         .highlight {
-          border: 2.5px dashed #6366f1;
-          border-radius: 8px;
-          padding: 0 8px;
           color: #6366f1;
+
+          border: 2px solid #bfc5ff;
+
+          border-radius: 10px;
+
+          padding: 0 10px;
+
+          animation: glowPulse 2s infinite;
         }
 
-        /* blinking cursor after AI Agents */
-        .cursor-blink {
-          display: inline-block;
-          width: 3px;
-          height: 0.82em;
-          background: #6366f1;
-          margin-left: 3px;
-          vertical-align: middle;
-          border-radius: 1px;
-          animation: blink 1s step-end infinite;
-        }
+        /* SUBTEXT */
 
-        /* ---- SUBTEXT ---- */
         .subtext {
-          font-size: 15px;
-          color: #555;
-          max-width: 480px;
-          line-height: 1.65;
-          margin: 0;
-          opacity: 0;
-          animation: fadeDown 0.8s ease forwards;
-          animation-delay: 0.4s;
+          max-width: 500px;
+
+          margin: 18px auto;
+
+          font-size: 13px;
+
+          color: #666;
+
+          line-height: 1.7;
+
+          animation: fadeUp 1.2s ease;
         }
 
-        /* ---- CTA ---- */
+        /* BUTTON */
+
         .cta-btn {
-          background: #0f0f0f;
-          color: #fff;
-          font-size: 14px;
-          font-weight: 600;
-          padding: 14px 32px;
-          border-radius: 12px;
+          display: inline-flex;
+
+          align-items: center;
+          justify-content: center;
+
+          background: linear-gradient(
+            180deg,
+            #1f1f1f 0%,
+            #0f0f0f 100%
+          );
+
+          color: white;
+
           text-decoration: none;
-          transition: background 0.2s, transform 0.2s;
-          opacity: 0;
-          animation: fadeDown 0.9s ease forwards;
-          animation-delay: 0.55s;
-        }
-        .cta-btn:hover {
-          background: #333;
-          transform: translateY(-1px);
+
+          padding: 13px 30px;
+
+          border-radius: 14px;
+
+          font-size: 13px;
+
+          font-weight: 700;
+
+          margin-top: 10px;
+
+          border: 1px solid rgba(255,255,255,0.08);
+
+          box-shadow:
+            0 10px 25px rgba(0,0,0,0.16),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+
+          transition: all 0.35s ease;
+
+          position: relative;
+
+          overflow: hidden;
+
+          animation: fadeUp 1.4s ease;
         }
 
-        /* ---- VISUAL AREA ---- */
+        .cta-btn::before {
+          content: "";
+
+          position: absolute;
+
+          top: 0;
+          left: -120%;
+
+          width: 80%;
+          height: 100%;
+
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
+          );
+
+          transform: skewX(-20deg);
+
+          transition: 0.8s;
+        }
+
+        .cta-btn:hover::before {
+          left: 130%;
+        }
+
+        .cta-btn:hover {
+          transform: translateY(-5px) scale(1.03);
+
+          box-shadow:
+            0 20px 40px rgba(0,0,0,0.22),
+            0 0 24px rgba(99,102,241,0.18);
+        }
+
+        /* VISUAL */
+
         .hero-visual {
           position: relative;
+
           width: 100%;
-          height: 420px;
+
+          height: 620px;
+
           margin-top: 20px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          opacity: 0;
-          animation: fadeUp 1s ease forwards;
-          animation-delay: 0.7s;
         }
 
-        /* ---- CENTER 3D IMAGE ---- */
+        /* CENTER IMAGE */
+
         .center-image-wrap {
           position: absolute;
-          width: 360px;
-          height: 410px;
+
+          width: 430px;
+          height: 520px;
+
           left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
+          top: 20px;
+
+          transform: translateX(-50%);
+
           z-index: 2;
-          pointer-events: none;
+
+          opacity: 0.95;
+
+          filter: drop-shadow(
+            0 20px 40px rgba(99,102,241,0.18)
+          );
+
+          animation: floatImage 5s ease-in-out infinite;
         }
 
-        /* ---- GLASS CARDS ---- */
-        .card {
+        /* LEFT */
+
+        .left-col {
           position: absolute;
-          background: rgba(255, 255, 255, 0.75);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.9);
-          border-radius: 16px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-          padding: 16px;
+
+          left: 90px;
+          top: 220px;
+
+          width: 220px;
+
           z-index: 3;
+
+          transform: rotate(-8deg);
+
+          animation: floatLeft 4s ease-in-out infinite;
         }
 
-        /* chart card */
-        .card-chart {
-          left: 0;
-          bottom: 20px;
-          width: 160px;
+        /* RIGHT */
+
+        .right-col {
+          position: absolute;
+
+          right: 90px;
+          top: 220px;
+
+          width: 220px;
+
+          z-index: 3;
+
+          transform: rotate(7deg);
+
+          animation: floatRight 4s ease-in-out infinite;
         }
+
+        /* CARD */
+
+        .card {
+          background: rgba(255,255,255,0.72);
+
+          backdrop-filter: blur(18px);
+
+          padding: 22px;
+
+          border-radius: 24px;
+
+          box-shadow:
+            0 10px 30px rgba(99,102,241,0.08);
+
+          transition: 0.3s ease;
+        }
+
+        .card:hover {
+          transform: translateY(-8px);
+        }
+
         .card-label {
           font-size: 11px;
-          color: #888;
-          margin-bottom: 4px;
-          text-transform: uppercase;
-          font-weight: 600;
-          letter-spacing: 0.5px;
-        }
-        .card-amount {
-          font-size: 18px;
+
           font-weight: 700;
-          color: #111;
+
+          color: #999;
+
           margin-bottom: 12px;
         }
+
+        .card-amount {
+          font-size: 34px;
+
+          font-weight: 900;
+
+          color: #111;
+
+          margin-bottom: 20px;
+        }
+
+        /* BARS */
+
         .chart-bars {
           display: flex;
-          gap: 5px;
+
           align-items: flex-end;
-          height: 50px;
+
+          gap: 8px;
+
+          height: 80px;
         }
+
         .bar {
           flex: 1;
-          background: #c7d7fb;
-          border-radius: 4px 4px 0 0;
+
+          background: #dbe4ff;
+
+          border-radius: 8px 8px 0 0;
+
+          animation: barsMove 2s ease infinite alternate;
         }
+
         .bar.active {
           background: #6366f1;
         }
 
-        /* calendar card */
-        .card-calendar {
-          right: 0;
-          top: 20px;
-          width: 210px;
-        }
+        /* CALENDAR */
+
         .cal-header {
-          font-size: 12px;
-          font-weight: 700;
-          color: #111;
-          margin-bottom: 8px;
-          text-align: center;
+          font-size: 22px;
+
+          font-weight: 800;
+
+          margin-bottom: 16px;
         }
+
         .cal-grid {
           display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 3px;
-          text-align: center;
+
+          grid-template-columns: repeat(7,1fr);
+
+          gap: 8px;
         }
+
         .cal-day-label {
-          font-size: 9px;
-          font-weight: 600;
+          font-size: 11px;
+
           color: #aaa;
-          padding: 2px 0;
-        }
-        .cal-day-label.red { color: #ef4444; }
-        .cal-day {
-          font-size: 9px;
-          color: #555;
-          padding: 3px 2px;
-          border-radius: 4px;
-        }
-        .cal-day.active {
-          background: #6366f1;
-          color: white;
+
           font-weight: 700;
+        }
+
+        .cal-day-label.red {
+          color: red;
+        }
+
+        .cal-day {
+          font-size: 12px;
+
+          padding: 7px;
+
           border-radius: 50%;
         }
-        .cal-day.red { color: #ef4444; }
+
+        .cal-day.red {
+          color: red;
+        }
+
+        .cal-day.active {
+          background: #6366f1;
+
+          color: white;
+        }
+
+        /* TICKER */
+
+        .ticker-outer {
+          overflow: hidden;
+
+          padding: 12px 0 18px;
+        }
+
+        .ticker-track {
+          display: flex;
+
+          gap: 40px;
+
+          width: max-content;
+
+          animation: ticker 18s linear infinite;
+        }
+
+        .ticker-set {
+          white-space: nowrap;
+
+          color: #999;
+
+          font-size: 13px;
+
+          font-weight: 700;
+        }
+
+        .dot {
+          color: #6366f1;
+
+          margin: 0 8px;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes floatImage {
+          0% {
+            transform: translateX(-50%) translateY(0px);
+          }
+
+          50% {
+            transform: translateX(-50%) translateY(-14px);
+          }
+
+          100% {
+            transform: translateX(-50%) translateY(0px);
+          }
+        }
+
+        @keyframes floatLeft {
+          0% {
+            transform: rotate(-8deg) translateY(0px);
+          }
+
+          50% {
+            transform: rotate(-8deg) translateY(-12px);
+          }
+
+          100% {
+            transform: rotate(-8deg) translateY(0px);
+          }
+        }
+
+        @keyframes floatRight {
+          0% {
+            transform: rotate(7deg) translateY(0px);
+          }
+
+          50% {
+            transform: rotate(7deg) translateY(-12px);
+          }
+
+          100% {
+            transform: rotate(7deg) translateY(0px);
+          }
+        }
+
+        @keyframes glowPulse {
+          0% {
+            box-shadow: 0 0 0px rgba(99,102,241,0.2);
+          }
+
+          50% {
+            box-shadow: 0 0 18px rgba(99,102,241,0.35);
+          }
+
+          100% {
+            box-shadow: 0 0 0px rgba(99,102,241,0.2);
+          }
+        }
+
+        @keyframes floatIcon {
+          0% {
+            transform: translateY(-4px);
+          }
+
+          50% {
+            transform: translateY(-10px);
+          }
+
+          100% {
+            transform: translateY(-4px);
+          }
+        }
+
+        @keyframes pulseBg {
+          0% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          50% {
+            transform: translate(-50%, -50%) scale(1.08);
+          }
+
+          100% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+
+        @keyframes barsMove {
+          from {
+            opacity: 0.7;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes ticker {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+          .headline {
+            font-size: 38px;
+          }
+
+          .hero-visual {
+            height: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 18px;
+          }
+
+          .left-col,
+          .right-col,
+          .center-image-wrap {
+            position: relative;
+
+            top: unset;
+            left: unset;
+            right: unset;
+
+            transform: none;
+
+            width: 100%;
+
+            max-width: 300px;
+          }
+
+          .center-image-wrap {
+            height: 360px;
+          }
+        }
 
       `}</style>
     </section>

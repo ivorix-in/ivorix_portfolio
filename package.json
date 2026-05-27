@@ -9,12 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.170.8",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.16.0",
     "next": "^16.2.6",
     "raf": "^3.4.1",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router": "^7.15.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
