@@ -9,8 +9,6 @@ export default function Navbar() {
         <Link href="/" className="logo">
 <span className="logo-text">Ivorix</span>
         </Link>
-
-        {/* Nav Links */}
         <ul className="nav-links">
           <li><Link href="/">Home</Link></li>
           <Link href="/about">About</Link>
