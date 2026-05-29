@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import heroImg from "@/public/homeImage/heroImg.jpg";
 
 export default function Hero() {
+  const dayLabels = ["M", "T", "W", "T", "F", "S", "S"];
+
   return (
     <section className="hero">
       {/* Ambient background glows */}
@@ -11,97 +15,207 @@ export default function Hero() {
       <div className="hero-glow-3"></div>
 
       <div className="hero-container">
-        {/* Trustpilot Rating Badge */}
-        <div className="rating-badge-wrapper">
-          <div className="rating-badge">
-            <span className="star-icon">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192z" />
-              </svg>
-            </span>
-            <span className="rating-text">
-              <strong>Trustpilot</strong>
-              <span className="rating-divider"></span>
-              4.8 Reviews
-            </span>
-          </div>
+
+        {/* TOP BADGE */}
+        <div className="rating-badge">
+          <span className="stars">★★★★</span>
+          <span className="trustpilot">Trustpilot</span>
+          <span className="divider">|</span>
+          <span className="score">4.8 Reviews</span>
         </div>
 
-        {/* Large Bold Headline with Inline Custom Node & Selection Style */}
+        {/* HEADING */}
         <h1 className="headline">
           Design Smart{" "}
           <span className="icon-inline">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="24" height="24" rx="6" fill="#4F46E5" />
-              <path d="M6 15L10 11L13 14L18 8.5M18 8.5H14M18 8.5V12" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
+              <rect width="48" height="48" rx="12" fill="#6366f1" />
+              <path
+                d="M12 25l9 9 15-18"
+                stroke="white"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </span>{" "}
           Workflows
           <br />
           That Power Your{" "}
-          <span className="editor-node-wrap">
-            <span className="editor-node">AI Agents</span>
-            <span className="node-handle tl"></span>
-            <span className="node-handle tr"></span>
-            <span className="node-handle bl"></span>
-            <span className="node-handle br"></span>
-            <span className="custom-cursor">
-              <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0.5L14 5L8.5 8L5.5 14L0 0.5Z" fill="#4F46E5" />
-                <path d="M0 0.5L14 5L8.5 8L5.5 14L0 0.5Z" stroke="white" strokeWidth="1" strokeLinejoin="round" />
-              </svg>
-              <span className="cursor-label">User</span>
-            </span>
+          <span className="highlight">
+            AI Agents
           </span>
         </h1>
 
-        {/* Clean, readable Subtitle */}
+        {/* SUBTEXT */}
         <p className="subtext">
           Automate your daily tasks with smart AI agents designed to improve
           efficiency, reduce effort, and deliver faster results.
         </p>
 
-        {/* Premium CTA Button */}
-        <div className="cta-wrapper">
-          <Link href="#" className="cta-btn">
-            Get Started Free
-            <span className="cta-arrow">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </Link>
-        </div>
+        {/* BUTTON */}
+        <Link href="/" className="cta-btn">
+          Get Started Free
+        </Link>
 
-        {/* Hero Visual Container blending the custom vertical graphic */}
-        <div className="hero-visual-wrapper">
-          <img src="/hero-bg.jpg" alt="Ivorix AI Agent Platform" className="hero-visual" />
-          <div className="fade-overlay-bottom"></div>
-        </div>
+        {/* VISUAL */}
+        <div className="hero-visual">
 
-        {/* Brand Showcase Logos */}
-        <div className="brands-wrapper">
-          <div className="brands-label">TRUSTED BY LEADING TEAMS</div>
-          <div className="brands">
-            {["TechCorp", "InnovateAI", "CloudBase", "DataFlow", "AutoMate"].map((b) => (
-              <span key={b} className="brand-name">{b}</span>
-            ))}
+          {/* LEFT CARD */}
+          <div className="left-col">
+
+            <div className="card growth-card">
+              <div className="card-label">Growth</div>
+
+              <div className="card-amount">
+                $1,823.00
+              </div>
+
+              <div className="chart-bars">
+                <div className="bar" style={{ height: "40%" }} />
+                <div className="bar" style={{ height: "65%" }} />
+                <div className="bar" style={{ height: "50%" }} />
+                <div className="bar active" style={{ height: "90%" }} />
+                <div className="bar" style={{ height: "70%" }} />
+                <div className="bar" style={{ height: "55%" }} />
+              </div>
+            </div>
+
+          </div>
+
+          {/* CENTER IMAGE */}
+          <div className="center-image-wrap">
+            <Image
+              src={heroImg}
+              alt="AI Hero"
+              fill
+              priority
+              style={{ objectFit: "contain" }}
+            />
+          </div>
+
+          {/* RIGHT CARD */}
+          <div className="right-col">
+
+            <div className="card cal-card">
+
+              <div className="cal-header">
+                January 2026
+              </div>
+
+              <div className="cal-grid">
+
+                {dayLabels.map((d, i) => (
+                  <div
+                    key={i}
+                    className={`cal-day-label ${
+                      i >= 5 ? "red" : ""
+                    }`}
+                  >
+                    {d}
+                  </div>
+                ))}
+
+                <div />
+                <div />
+
+                {Array.from({ length: 31 }, (_, i) => {
+                  const n = i + 1;
+
+                  const isRed = [
+                    4, 5, 11, 12, 18, 19, 25, 26,
+                  ].includes(n);
+
+                  const isActive = n === 20;
+
+                  return (
+                    <div
+                      key={n}
+                      className={`cal-day 
+                      ${isRed ? "red" : ""}
+                      ${isActive ? "active" : ""}
+                    `}
+                    >
+                      {n}
+                    </div>
+                  );
+                })}
+
+              </div>
+            </div>
+
           </div>
         </div>
+
+        {/* TICKER */}
+        <div className="ticker-outer">
+          <div className="ticker-track">
+
+            {[...Array(6)].map((_, i) => (
+              <span key={i} className="ticker-set">
+                TechCorp <span className="dot">•</span>
+                InnovateAI <span className="dot">•</span>
+                CloudBase <span className="dot">•</span>
+                DataFlow <span className="dot">•</span>
+              </span>
+            ))}
+
+          </div>
+        </div>
+
       </div>
 
+      {/* CSS */}
+
       <style jsx>{`
+
+        * {
+          box-sizing: border-box;
+        }
+
         .hero {
           position: relative;
           min-height: 100vh;
-          background: radial-gradient(120% 80% at 50% 0%, #ffffff 30%, #f3f6ff 70%, #e8eeff 100%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-top: 140px;
-          padding-bottom: 60px;
+
+          background:
+            radial-gradient(
+              circle at top,
+              rgba(99,102,241,0.12),
+              transparent 35%
+            ),
+            linear-gradient(
+              to bottom,
+              #f8f9ff,
+              #eef2ff
+            );
+
           overflow: hidden;
+          padding-top: 25px;
+          position: relative;
+        }
+
+        .hero::before {
+          content: "";
+
+          position: absolute;
+
+          width: 700px;
+          height: 700px;
+
+          background: rgba(99,102,241,0.08);
+
+          border-radius: 50%;
+
+          filter: blur(120px);
+
+          left: 50%;
+          top: 45%;
+
+          transform: translate(-50%, -50%);
+
+          z-index: 0;
+
+          animation: pulseBg 6s ease-in-out infinite;
         }
 
         /* Soft background glows */
@@ -143,48 +257,51 @@ export default function Hero() {
         }
 
         .hero-container {
-          width: 100%;
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 0 24px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
           position: relative;
           z-index: 2;
+
+          max-width: 1150px;
+
+          margin: auto;
+
+          padding: 0 20px;
+
+          text-align: center;
         }
 
-        /* Rating Badge */
-        .rating-badge-wrapper {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 24px;
-          z-index: 2;
-        }
+        /* BADGE */
 
         .rating-badge {
           display: flex;
+          justify-content: center;
           align-items: center;
+
           gap: 6px;
-          background: rgba(255, 255, 255, 0.55);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.7);
-          padding: 6px 14px;
-          border-radius: 30px;
-          box-shadow: 
-            0 1px 2px rgba(0, 0, 0, 0.02),
-            0 8px 24px rgba(99, 102, 241, 0.03);
-          font-size: 13px;
-          color: #4b5563;
+
+          font-size: 12px;
+
+          margin-bottom: 18px;
+
+          animation: fadeUp 0.8s ease;
         }
 
-        .star-icon {
-          display: flex;
-          align-items: center;
-          color: #f59e0b;
-          filter: drop-shadow(0 1px 1px rgba(245, 158, 11, 0.15));
+        .stars {
+          color: orange;
         }
+
+        .trustpilot {
+          font-weight: 700;
+        }
+
+        .divider {
+          color: #bbb;
+        }
+
+        .score {
+          color: #555;
+        }
+
+        /* TITLE */
 
         .rating-divider {
           display: inline-block;
@@ -202,151 +319,270 @@ export default function Hero() {
 
         /* Headline */
         .headline {
-          font-size: clamp(36px, 5.5vw, 64px);
+          font-size: clamp(28px, 4vw, 54px);
+
+          line-height: 1.08;
+
           font-weight: 800;
-          color: #0f0f11;
-          letter-spacing: -1.8px;
-          line-height: 1.15;
-          margin: 0 0 20px 0;
-          text-align: center;
-          z-index: 2;
-          max-width: 920px;
+
+          color: #111;
+
+          letter-spacing: -2px;
+
+          margin: auto;
+
+          max-width: 720px;
+
+          animation: fadeUp 1s ease;
         }
 
         .icon-inline {
           display: inline-flex;
+
           vertical-align: middle;
-          margin: 0 4px;
+
           transform: translateY(-4px);
-          filter: drop-shadow(0 4px 8px rgba(79, 70, 229, 0.2));
-          animation: inlineFloat 4s ease-in-out infinite;
+
+          animation: floatIcon 3s ease-in-out infinite;
         }
 
-        @keyframes inlineFloat {
-          0%, 100% { transform: translateY(-4px); }
-          50% { transform: translateY(-8px); }
+        .highlight {
+          color: #6366f1;
+
+          border: 2px solid #bfc5ff;
+
+          border-radius: 10px;
+
+          padding: 0 10px;
+
+          animation: glowPulse 2s infinite;
         }
 
-        /* Headline Node Editor Selector Custom Style */
-        .editor-node-wrap {
-          position: relative;
-          display: inline-block;
-          padding: 0 14px;
-          margin: 0 2px;
-          z-index: 5;
-        }
+        /* SUBTEXT */
 
-        .editor-node {
-          color: #4f46e5;
-          position: relative;
-          z-index: 2;
-          font-weight: 800;
-        }
-
-        .editor-node-wrap::before {
-          content: "";
-          position: absolute;
-          top: -3px;
-          bottom: -3px;
-          left: 0;
-          right: 0;
-          border: 1.5px dashed rgba(79, 70, 229, 0.65);
-          border-radius: 8px;
-          background: rgba(99, 102, 241, 0.04);
-          z-index: 1;
-          animation: borderPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes borderPulse {
-          0%, 100% { 
-            border-color: rgba(79, 70, 229, 0.45); 
-            background: rgba(99, 102, 241, 0.02); 
-          }
-          50% { 
-            border-color: rgba(79, 70, 229, 0.85); 
-            background: rgba(99, 102, 241, 0.07); 
-          }
-        }
-
-        .node-handle {
-          position: absolute;
-          width: 7px;
-          height: 7px;
-          background: #ffffff;
-          border: 1.5px solid #4f46e5;
-          border-radius: 1px;
-          z-index: 3;
-        }
-
-        .node-handle.tl { top: -6px; left: -3px; }
-        .node-handle.tr { top: -6px; right: -3px; }
-        .node-handle.bl { bottom: -6px; left: -3px; }
-        .node-handle.br { bottom: -6px; right: -3px; }
-
-        .custom-cursor {
-          position: absolute;
-          bottom: -22px;
-          right: -28px;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          z-index: 10;
-          pointer-events: none;
-          animation: cursorFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes cursorFloat {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(-3px, -2px); }
-        }
-
-        .cursor-label {
-          background: #4f46e5;
-          color: #ffffff;
-          font-size: 10px;
-          font-weight: 600;
-          padding: 1.5px 6px;
-          border-radius: 4px;
-          box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
-          letter-spacing: 0px;
-          text-transform: none;
-        }
-
-        /* Subtext */
         .subtext {
-          font-size: 16px;
-          color: #4b5563;
-          max-width: 520px;
-          line-height: 1.65;
-          margin: 0 auto 32px auto;
-          text-align: center;
-          z-index: 2;
+          max-width: 500px;
+
+          margin: 18px auto;
+
+          font-size: 13px;
+
+          color: #666;
+
+          line-height: 1.7;
+
+          animation: fadeUp 1.2s ease;
         }
 
-        /* CTA Wrapper */
-        .cta-wrapper {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 56px;
-          z-index: 2;
-        }
+        /* BUTTON */
 
         .cta-btn {
-          display: flex;
+          display: inline-flex;
+
           align-items: center;
-          gap: 8px;
-          background: #0f0f11;
-          color: #ffffff;
-          font-size: 14.5px;
-          font-weight: 600;
-          padding: 14px 34px;
-          border-radius: 30px;
+          justify-content: center;
+
+          background: linear-gradient(
+            180deg,
+            #1f1f1f 0%,
+            #0f0f0f 100%
+          );
+
+          color: white;
+
           text-decoration: none;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          box-shadow: 
-            0 4px 16px rgba(0, 0, 0, 0.12),
-            0 12px 32px rgba(99, 102, 241, 0.06);
-          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+          padding: 13px 30px;
+
+          border-radius: 14px;
+
+          font-size: 13px;
+
+          font-weight: 700;
+
+          margin-top: 10px;
+
+          border: 1px solid rgba(255,255,255,0.08);
+
+          box-shadow:
+            0 10px 25px rgba(0,0,0,0.16),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+
+          transition: all 0.35s ease;
+
+          position: relative;
+
+          overflow: hidden;
+
+          animation: fadeUp 1.4s ease;
+        }
+
+        .cta-btn::before {
+          content: "";
+
+          position: absolute;
+
+          top: 0;
+          left: -120%;
+
+          width: 80%;
+          height: 100%;
+
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
+          );
+
+          transform: skewX(-20deg);
+
+          transition: 0.8s;
+        }
+
+        .cta-btn:hover::before {
+          left: 130%;
+        }
+
+        .cta-btn:hover {
+          transform: translateY(-5px) scale(1.03);
+
+          box-shadow:
+            0 20px 40px rgba(0,0,0,0.22),
+            0 0 24px rgba(99,102,241,0.18);
+        }
+
+        /* VISUAL */
+
+        .hero-visual {
+          position: relative;
+
+          width: 100%;
+
+          height: 620px;
+
+          margin-top: 20px;
+        }
+
+        /* CENTER IMAGE */
+
+        .center-image-wrap {
+          position: absolute;
+
+          width: 430px;
+          height: 520px;
+
+          left: 50%;
+          top: 20px;
+
+          transform: translateX(-50%);
+
+          z-index: 2;
+
+          opacity: 0.95;
+
+          filter: drop-shadow(
+            0 20px 40px rgba(99,102,241,0.18)
+          );
+
+          animation: floatImage 5s ease-in-out infinite;
+        }
+
+        /* LEFT */
+
+        .left-col {
+          position: absolute;
+
+          left: 90px;
+          top: 220px;
+
+          width: 220px;
+
+          z-index: 3;
+
+          transform: rotate(-8deg);
+
+          animation: floatLeft 4s ease-in-out infinite;
+        }
+
+        /* RIGHT */
+
+        .right-col {
+          position: absolute;
+
+          right: 90px;
+          top: 220px;
+
+          width: 220px;
+
+          z-index: 3;
+
+          transform: rotate(7deg);
+
+          animation: floatRight 4s ease-in-out infinite;
+        }
+
+        /* CARD */
+
+        .card {
+          background: rgba(255,255,255,0.72);
+
+          backdrop-filter: blur(18px);
+
+          padding: 22px;
+
+          border-radius: 24px;
+
+          box-shadow:
+            0 10px 30px rgba(99,102,241,0.08);
+
+          transition: 0.3s ease;
+        }
+
+        .card:hover {
+          transform: translateY(-8px);
+        }
+
+        .card-label {
+          font-size: 11px;
+
+          font-weight: 700;
+
+          color: #999;
+
+          margin-bottom: 12px;
+        }
+
+        .card-amount {
+          font-size: 34px;
+
+          font-weight: 900;
+
+          color: #111;
+
+          margin-bottom: 20px;
+        }
+
+        /* BARS */
+
+        .chart-bars {
+          display: flex;
+
+          align-items: flex-end;
+
+          gap: 8px;
+
+          height: 80px;
+        }
+
+        .bar {
+          flex: 1;
+
+          background: #dbe4ff;
+
+          border-radius: 8px 8px 0 0;
+
+          animation: barsMove 2s ease infinite alternate;
         }
 
         .cta-btn:hover {
@@ -357,140 +593,247 @@ export default function Hero() {
             0 16px 40px rgba(79, 70, 229, 0.2);
         }
 
-        .cta-arrow {
-          display: flex;
-          align-items: center;
-          transition: transform 0.2s ease;
+        /* CALENDAR */
+
+        .cal-header {
+          font-size: 22px;
+
+          font-weight: 800;
+
+          margin-bottom: 16px;
         }
 
-        .cta-btn:hover .cta-arrow {
-          transform: translateX(4px);
+        .cal-grid {
+          display: grid;
+
+          grid-template-columns: repeat(7,1fr);
+
+          gap: 8px;
         }
 
-        /* Visual Container */
-        .hero-visual-wrapper {
-          position: relative;
-          width: 100%;
-          max-width: 682px; /* the exact width of the image */
-          margin: -100px auto 0 auto; /* pull it up slightly to overlay the empty top of the graphic */
-          padding: 0 12px;
-          z-index: 3;
-          animation: visualFloat 7s ease-in-out infinite;
-        }
-
-        @keyframes visualFloat {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-
-        .hero-visual {
-          width: 100%;
-          height: auto;
-          display: block;
-          mix-blend-mode: multiply; /* blends white background into gradient */
-        }
-
-        .fade-overlay-bottom {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 160px;
-          background: linear-gradient(to top, #ffffff 10%, transparent 100%);
-          pointer-events: none;
-        }
-
-        /* Brand Logos Showcase */
-        .brands-wrapper {
-          width: 100%;
-          max-width: 920px;
-          margin-top: 60px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          z-index: 2;
-          border-top: 1px solid rgba(0, 0, 0, 0.06);
-          padding-top: 40px;
-        }
-
-        .brands-label {
+        .cal-day-label {
           font-size: 11px;
-          font-weight: 600;
-          color: #8c96a8;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
 
-        .brands {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 56px;
-          flex-wrap: wrap;
-        }
+          color: #aaa;
 
-        .brand-name {
-          font-size: 14.5px;
           font-weight: 700;
-          color: #4b5563;
-          opacity: 0.45;
-          letter-spacing: -0.3px;
-          transition: all 0.25s ease;
-          cursor: default;
         }
 
-        .brand-name:hover {
-          opacity: 0.95;
-          color: #4f46e5;
-          transform: translateY(-1.5px);
+        .cal-day-label.red {
+          color: red;
         }
+
+        .cal-day {
+          font-size: 12px;
+
+          padding: 7px;
+
+          border-radius: 50%;
+        }
+
+        .cal-day.red {
+          color: red;
+        }
+
+        .cal-day.active {
+          background: #6366f1;
+
+          color: white;
+        }
+
+        /* TICKER */
+
+        .ticker-outer {
+          overflow: hidden;
+
+          padding: 12px 0 18px;
+        }
+
+        .ticker-track {
+          display: flex;
+
+          gap: 40px;
+
+          width: max-content;
+
+          animation: ticker 18s linear infinite;
+        }
+
+        .ticker-set {
+          white-space: nowrap;
+
+          color: #999;
+
+          font-size: 13px;
+
+          font-weight: 700;
+        }
+
+        .dot {
+          color: #6366f1;
+
+          margin: 0 8px;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes floatImage {
+          0% {
+            transform: translateX(-50%) translateY(0px);
+          }
+
+          50% {
+            transform: translateX(-50%) translateY(-14px);
+          }
+
+          100% {
+            transform: translateX(-50%) translateY(0px);
+          }
+        }
+
+        @keyframes floatLeft {
+          0% {
+            transform: rotate(-8deg) translateY(0px);
+          }
+
+          50% {
+            transform: rotate(-8deg) translateY(-12px);
+          }
+
+          100% {
+            transform: rotate(-8deg) translateY(0px);
+          }
+        }
+
+        @keyframes floatRight {
+          0% {
+            transform: rotate(7deg) translateY(0px);
+          }
+
+          50% {
+            transform: rotate(7deg) translateY(-12px);
+          }
+
+          100% {
+            transform: rotate(7deg) translateY(0px);
+          }
+        }
+
+        @keyframes glowPulse {
+          0% {
+            box-shadow: 0 0 0px rgba(99,102,241,0.2);
+          }
+
+          50% {
+            box-shadow: 0 0 18px rgba(99,102,241,0.35);
+          }
+
+          100% {
+            box-shadow: 0 0 0px rgba(99,102,241,0.2);
+          }
+        }
+
+        @keyframes floatIcon {
+          0% {
+            transform: translateY(-4px);
+          }
+
+          50% {
+            transform: translateY(-10px);
+          }
+
+          100% {
+            transform: translateY(-4px);
+          }
+        }
+
+        @keyframes pulseBg {
+          0% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+
+          50% {
+            transform: translate(-50%, -50%) scale(1.08);
+          }
+
+          100% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+        }
+
+        @keyframes barsMove {
+          from {
+            opacity: 0.7;
+          }
+
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes ticker {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        /* MOBILE */
 
         @media (max-width: 768px) {
-          .hero {
-            padding-top: 120px;
-          }
-          .hero-visual-wrapper {
-            margin-top: -60px;
-          }
-          .brands {
-            gap: 32px;
-          }
-        }
 
-        @media (max-width: 640px) {
           .headline {
-            letter-spacing: -1.2px;
+            font-size: 38px;
           }
-          .subtext {
-            font-size: 15px;
-            padding: 0 8px;
+
+          .hero-visual {
+            height: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 18px;
           }
-          .brands-wrapper {
-            margin-top: 48px;
-            padding-top: 32px;
+
+          .left-col,
+          .right-col,
+          .center-image-wrap {
+            position: relative;
+
+            top: unset;
+            left: unset;
+            right: unset;
+
+            transform: none;
+
+            width: 100%;
+
+            max-width: 300px;
           }
-          .brands {
-            gap: 24px;
-          }
-          .brand-name {
-            font-size: 13px;
+
+          .center-image-wrap {
+            height: 360px;
           }
         }
 
-        @media (max-width: 480px) {
-          .hero-visual-wrapper {
-            margin-top: -40px;
-          }
-          .editor-node-wrap {
-            padding: 0 8px;
-          }
-          .custom-cursor {
-            bottom: -24px;
-            right: -20px;
-          }
-        }
       `}</style>
     </section>
   );
