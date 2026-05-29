@@ -15,6 +15,7 @@ export default function Navbar() {
           <li><Link href="#">Use Cases</Link></li>
           <li><Link href="/services">Services</Link></li>
           <li><Link href="#">Pricing</Link></li>
+          <li><Link href='#'>Contacts</Link></li>
         </ul>
 
         {/* CTA */}
