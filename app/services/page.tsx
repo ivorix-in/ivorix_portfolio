@@ -8,7 +8,6 @@ export default function ServicesPage() {
     <main>
         <Navbar />
         <ServiceSection />   
-      
       <Footer/>
     </main>
   );

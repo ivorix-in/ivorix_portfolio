@@ -9,6 +9,11 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      {/* Ambient background glows */}
+      <div className="hero-glow-1"></div>
+      <div className="hero-glow-2"></div>
+      <div className="hero-glow-3"></div>
+
       <div className="hero-container">
 
         {/* TOP BADGE */}
@@ -169,6 +174,7 @@ export default function Hero() {
         }
 
         .hero {
+          position: relative;
           min-height: 100vh;
 
           background:
@@ -210,6 +216,44 @@ export default function Hero() {
           z-index: 0;
 
           animation: pulseBg 6s ease-in-out infinite;
+        }
+
+        /* Soft background glows */
+        .hero-glow-1 {
+          position: absolute;
+          top: 10%;
+          left: 15%;
+          width: 320px;
+          height: 320px;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+          filter: blur(50px);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .hero-glow-2 {
+          position: absolute;
+          top: 20%;
+          right: 10%;
+          width: 380px;
+          height: 380px;
+          background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+          filter: blur(60px);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .hero-glow-3 {
+          position: absolute;
+          bottom: 15%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 600px;
+          height: 350px;
+          background: radial-gradient(circle, rgba(99, 102, 241, 0.06) 0%, transparent 80%);
+          filter: blur(70px);
+          pointer-events: none;
+          z-index: 1;
         }
 
         .hero-container {
@@ -259,6 +303,21 @@ export default function Hero() {
 
         /* TITLE */
 
+        .rating-divider {
+          display: inline-block;
+          width: 1px;
+          height: 12px;
+          background: rgba(0, 0, 0, 0.08);
+          margin: 0 8px;
+          vertical-align: middle;
+        }
+
+        .rating-text strong {
+          color: #1f2937;
+          font-weight: 600;
+        }
+
+        /* Headline */
         .headline {
           font-size: clamp(28px, 4vw, 54px);
 
@@ -526,8 +585,12 @@ export default function Hero() {
           animation: barsMove 2s ease infinite alternate;
         }
 
-        .bar.active {
-          background: #6366f1;
+        .cta-btn:hover {
+          background: #1e1e24;
+          transform: translateY(-2px);
+          box-shadow: 
+            0 6px 20px rgba(0, 0, 0, 0.15),
+            0 16px 40px rgba(79, 70, 229, 0.2);
         }
 
         /* CALENDAR */
