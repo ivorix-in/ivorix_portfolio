@@ -23,8 +23,6 @@ export default function Navbar() {
           </div>
           <span className="logo-text">Ivorix</span>
         </Link>
-
-        {/* Nav Links */}
         <ul className="nav-links">
           <li><Link href="#">About</Link></li>
           <li><Link href="#">Use Cases</Link></li>
