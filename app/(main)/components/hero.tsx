@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import heroImg from "@/public/homeImage/heroImg.jpg";
+
 
 export default function Hero() {
   const dayLabels = ["M", "T", "W", "T", "F", "S", "S"];
@@ -54,15 +54,17 @@ export default function Hero() {
         </p>
 
         {/* BUTTON */}
-        <Link href="/" className="cta-btn">
+        <Link href="/" >
+        <button  className="cta-btn">
           Get Started Free
+        </button>
         </Link>
 
         {/* VISUAL */}
         <div className="hero-visual">
 
           {/* LEFT CARD */}
-          <div className="left-col">
+          {/* <div className="left-col">
 
             <div className="card growth-card">
               <div className="card-label">Growth</div>
@@ -81,20 +83,12 @@ export default function Hero() {
               </div>
             </div>
 
-          </div>
+          </div> */}
 
           {/* CENTER IMAGE */}
-          <div className="center-image-wrap">
-            <Image
-              src={heroImg}
-              alt="AI Hero"
-              fill
-              priority
-              style={{ objectFit: "contain" }}
-            />
-          </div>
+       
 
-          {/* RIGHT CARD */}
+{/*          
           <div className="right-col">
 
             <div className="card cal-card">
@@ -144,22 +138,24 @@ export default function Hero() {
               </div>
             </div>
 
-          </div>
+          </div> */}
         </div>
 
         {/* TICKER */}
         <div className="ticker-outer">
           <div className="ticker-track">
-
-            {[...Array(6)].map((_, i) => (
-              <span key={i} className="ticker-set">
-                TechCorp <span className="dot">•</span>
-                InnovateAI <span className="dot">•</span>
-                CloudBase <span className="dot">•</span>
-                DataFlow <span className="dot">•</span>
-              </span>
+            {[...Array(4)].map((_, trackIndex) => (
+              <div key={trackIndex} className="ticker-set">
+                {["TechCorp", "InnovateAI", "CloudBase", "DataFlow", "AutoMate"].map((name, i) => (
+                  <div key={`${trackIndex}-${i}`} className="ticker-card">
+                    <div className="ticker-logo">
+                      <div className="ticker-logo-inner"></div>
+                    </div>
+                    <span className="ticker-name">{name}</span>
+                  </div>
+                ))}
+              </div>
             ))}
-
           </div>
         </div>
 
@@ -173,26 +169,18 @@ export default function Hero() {
           box-sizing: border-box;
         }
 
-        .hero {
-          position: relative;
-          min-height: 100vh;
+   .hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 100px;
 
-          background:
-            radial-gradient(
-              circle at top,
-              rgba(99,102,241,0.12),
-              transparent 35%
-            ),
-            linear-gradient(
-              to bottom,
-              #f8f9ff,
-              #eef2ff
-            );
-
-          overflow: hidden;
-          padding-top: 25px;
-          position: relative;
-        }
+  background-image: url("/hero-bg.png");
+  background-size: cover;
+  background-position: center top;
+   background-repeat: no-repeat;
+  
+}
 
         .hero::before {
           content: "";
@@ -378,7 +366,7 @@ export default function Hero() {
 
         .cta-btn {
           display: inline-flex;
-
+         
           align-items: center;
           justify-content: center;
 
@@ -408,7 +396,7 @@ export default function Hero() {
             0 10px 25px rgba(0,0,0,0.16),
             inset 0 1px 0 rgba(255,255,255,0.08);
 
-          transition: all 0.35s ease;
+          // transition: all 0.35s ease;
 
           position: relative;
 
@@ -644,35 +632,83 @@ export default function Hero() {
         /* TICKER */
 
         .ticker-outer {
+          position: relative;
           overflow: hidden;
-
-          padding: 12px 0 18px;
+          padding: 30px 0 20px;
+          margin-top: 30px;
+          width: 100%;
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
         .ticker-track {
           display: flex;
-
-          gap: 40px;
-
+          gap: 24px;
           width: max-content;
+          animation: ticker 35s linear infinite;
+        }
 
-          animation: ticker 18s linear infinite;
+        .ticker-track:hover {
+          animation-play-state: paused;
         }
 
         .ticker-set {
-          white-space: nowrap;
-
-          color: #999;
-
-          font-size: 13px;
-
-          font-weight: 700;
+          display: flex;
+          gap: 24px;
+          padding-right: 24px;
         }
 
-        .dot {
-          color: #6366f1;
+        .ticker-card {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          background: rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid rgba(255, 255, 255, 0.7);
+          padding: 14px 28px;
+          border-radius: 100px;
+          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.05);
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
 
-          margin: 0 8px;
+        .ticker-card:hover {
+          transform: translateY(-3px) scale(1.03);
+          background: rgba(255, 255, 255, 0.6);
+          box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15), 0 0 20px rgba(99, 102, 241, 0.2);
+          border-color: rgba(255, 255, 255, 1);
+        }
+
+        .ticker-logo {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #a5b4fc, #6366f1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+        }
+
+        .ticker-logo-inner {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: white;
+          opacity: 0.9;
+        }
+
+        .ticker-name {
+          color: #6b7280;
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: -0.2px;
+          transition: color 0.3s ease;
+        }
+
+        .ticker-card:hover .ticker-name {
+          color: #1f2937;
         }
 
         /* ANIMATIONS */

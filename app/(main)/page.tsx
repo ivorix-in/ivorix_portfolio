@@ -33,9 +33,9 @@ export default function Home() {
 
   return (
     <main>
-      {/* <Navbar /> */}
+      <Navbar/>
+      
       <Hero />
-
       <FeaturesSection />
       <StepsSection />
       <IndustriesSection />
