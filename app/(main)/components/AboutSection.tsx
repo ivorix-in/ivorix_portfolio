@@ -3,6 +3,8 @@
 import React, { useEffect, useInsertionEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import CountUp from "@/components/CountUp/CountUp.jsx";
+import Image from "next/image";
+import logo from '@/public/logo.png'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Global keyframe injection (useInsertionEffect → runs before paint, no flash)
@@ -259,10 +261,12 @@ function IvorxCube() {
 
         {/* Ivorx mark + wordmark */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
-          <svg viewBox="0 0 36 36" fill="none" className="w-[36%] h-auto">
-            <path d="M18 4L3 32H13L18 20L23 32H33L18 4Z" fill="#4f46e5" opacity="0.92" />
-            <path d="M13 32L18 22L23 32" fill="white" opacity="0.48" />
-          </svg>
+                     <Image
+            src={logo}
+            alt="Ivorx Logo"
+            width={80}
+            height={80}
+          />
           <span
             className="font-bold text-indigo-700 leading-none"
             style={{ fontSize: "clamp(9px, 3.5%, 14px)", letterSpacing: "-0.2px" }}
@@ -519,10 +523,16 @@ const CHECKLIST = [
 
 function IvorxMark() {
   return (
-    <svg viewBox="0 0 52 52" fill="none" className="w-12 h-12 sm:w-14 sm:h-14">
-      <path d="M26 8L6 42H17.5L26 26L34.5 42H46L26 8Z" fill="#2563EB" />
-      <path d="M20 42L26 30L32 42" fill="#EFF6FF" opacity="0.55" />
-    </svg>
+  <>
+ 
+  <Image
+    src={logo}
+    alt="Ivorx Logo"
+    width={80}
+    height={80}
+  />
+
+  </>
   );
 }
 
@@ -535,11 +545,15 @@ function OrbitRings() {
   return (
     <>
       {rings.map((r, ri) => (
-        <div
-          key={ri}
-          className={`absolute rounded-full border border-dashed pointer-events-none ${r.cls}`}
-          style={{ width: r.size, height: r.size }}
-        >
+          <div
+            key={ri}
+            className={`absolute rounded-full border border-dashed pointer-events-none ${r.cls}`}
+            style={{
+              width: r.size,
+              height: r.size,
+              animation: ri % 2 === 0 ? "orbitCW 10s linear infinite" : "orbitCCW 14s linear infinite",
+            }}
+          >
           {r.nodes.map((deg) => {
             const rad  = (deg * Math.PI) / 180;
             const half = r.size / 2;
@@ -547,7 +561,7 @@ function OrbitRings() {
             return (
               <div
                 key={deg}
-                className="absolute rounded-full bg-slate-300/80"
+                className="absolute rounded-full bg-blue-400"
                 style={{
                   width: r.dotPx,
                   height: r.dotPx,
@@ -585,7 +599,8 @@ function WhyChoosePanel() {
           <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-[1.75rem]
             flex items-center justify-center
             border border-slate-100/70
-            shadow-[0_12px_40px_rgba(99,102,241,0.10),0_2px_8px_rgba(0,0,0,0.04)]">
+            shadow-[0_12px_40px_rgba(99,102,241,0.10),0_2px_8px_rgba(0,0,0,0.04)]"
+             style={{ animation: "floatCube 4.5s ease-in-out infinite" }}>
             <IvorxMark />
           </div>
         </div>

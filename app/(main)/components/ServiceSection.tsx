@@ -2,6 +2,8 @@
 
 import React, { useEffect, useInsertionEffect, useRef, useState } from 'react';
 import Navbar from '@/components/Navbar';
+import Image from "next/image";
+import logo from '@/public/logo.png'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Keyframe injection — stable, SSR-safe via useInsertionEffect
@@ -255,12 +257,14 @@ function HeroCube() {
         />
         {/* Logo mark */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
-          <svg viewBox="0 0 36 36" fill="none" className="w-[38%] h-auto">
-            <path d="M18 4L3 32H13L18 20L23 32H33L18 4Z" fill="#4f46e5" opacity="0.92"/>
-            <path d="M13 32L18 22L23 32" fill="white" opacity="0.46"/>
-          </svg>
+          <Image
+            src={logo}
+            alt="Ivorx Logo"
+            width={80}
+            height={80}
+          />
           <span className="font-bold text-indigo-700 leading-none" style={{ fontSize: 'clamp(8px, 3.2%, 13px)', letterSpacing: '-0.2px' }}>
-            ivorx
+            ivorx 
           </span>
         </div>
         {/* Right face */}
@@ -726,10 +730,13 @@ function CTAMark() {
         }}
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-          <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
-            <path d="M18 4L3 32H13L18 20L23 32H33L18 4Z" fill="#2563EB" opacity="0.92"/>
-            <path d="M13 32L18 22L23 32" fill="#EFF6FF" opacity="0.50"/>
-          </svg>
+          <Image
+            src={logo}
+            alt="Ivorx Logo"
+            width={70}
+            height={60}
+          />
+          
           <div className="space-y-1.5 px-4 w-full">
             <div className="h-1 rounded-full bg-slate-200/80 w-full" />
             <div className="h-1 rounded-full bg-slate-200/60 w-4/5" />
@@ -808,6 +815,7 @@ function CTABanner() {
       {/* Right: graphic */}
       <div className={`lg:col-span-5 relative z-10 flex justify-center lg:justify-end ${fu(visible, 170)}`}>
         <CTAMark />
+        
       </div>
     </div>
   );
