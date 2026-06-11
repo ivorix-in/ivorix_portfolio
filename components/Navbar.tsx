@@ -1,12 +1,20 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
+import logo from '@/public/logo.png'
 
 export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
         {/* Logo */}
-        <Link href="/" className="logo">
+        <Link href="/" className="logo flex items-center gap-2">
+            <Image
+            src={logo}
+            alt="Ivorx Logo"
+            width={40}
+            height={40}
+          />  
           <span className="logo-text">Ivorix</span>
         </Link>
         <ul className="nav-links">
