@@ -261,7 +261,7 @@ function IvorxCube() {
 
         {/* Ivorx mark + wordmark */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
-                     <Image
+          <Image
             src={logo}
             alt="Ivorx Logo"
             width={80}
@@ -391,10 +391,10 @@ function HeroSection() {
 // ── STATS BANNER ─────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
 const STATS: StatItem[] = [
-  { icon: <Icon.Users />,     value: 50,  suffix: "+", label: "Happy Clients"       },
-  { icon: <Icon.Briefcase />, value: 120, suffix: "+", label: "Projects Delivered"  },
-  { icon: <Icon.Calendar />,  value: 10,  suffix: "+", label: "Years of Experience" },
-  { icon: <Icon.Globe />,     value: 15,  suffix: "+", label: "Countries Served"    },
+  { icon: <Icon.Users />, value: 50, suffix: "+", label: "Happy Clients" },
+  { icon: <Icon.Briefcase />, value: 120, suffix: "+", label: "Projects Delivered" },
+  { icon: <Icon.Calendar />, value: 10, suffix: "+", label: "Years of Experience" },
+  { icon: <Icon.Globe />, value: 15, suffix: "+", label: "Countries Served" },
 ];
 
 function StatsBanner() {
@@ -468,10 +468,10 @@ function MissionHeader() {
 // ── BELIEFS GRID ─────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
 const BELIEFS: BeliefItem[] = [
-  { icon: <Icon.Lightbulb />, title: "Innovation",    desc: "We embrace new ideas and build future-ready solutions."            },
-  { icon: <Icon.Shield />,    title: "Integrity",     desc: "We work with honesty, transparency, and strong ethics."            },
-  { icon: <Icon.Users />,     title: "Collaboration", desc: "We believe in teamwork and growing together with our clients."     },
-  { icon: <Icon.Target />,    title: "Impact",        desc: "We focus on delivering solutions that create real business value." },
+  { icon: <Icon.Lightbulb />, title: "Innovation", desc: "We embrace new ideas and build future-ready solutions." },
+  { icon: <Icon.Shield />, title: "Integrity", desc: "We work with honesty, transparency, and strong ethics." },
+  { icon: <Icon.Users />, title: "Collaboration", desc: "We believe in teamwork and growing together with our clients." },
+  { icon: <Icon.Target />, title: "Impact", desc: "We focus on delivering solutions that create real business value." },
 ];
 
 function BeliefsGrid() {
@@ -523,41 +523,41 @@ const CHECKLIST = [
 
 function IvorxMark() {
   return (
-  <>
- 
-  <Image
-    src={logo}
-    alt="Ivorx Logo"
-    width={80}
-    height={80}
-  />
+    <>
 
-  </>
+      <Image
+        src={logo}
+        alt="Ivorx Logo"
+        width={80}
+        height={80}
+      />
+
+    </>
   );
 }
 
 /** Concentric dashed rings with node dots, coordinates computed via trig */
 function OrbitRings() {
   const rings = [
-    { size: 152, nodes: [30, 150, 275], dotPx: 5, cls: "border-slate-200"    },
+    { size: 152, nodes: [30, 150, 275], dotPx: 5, cls: "border-slate-200" },
     { size: 220, nodes: [65, 185, 305], dotPx: 6, cls: "border-slate-200/60" },
   ];
   return (
     <>
       {rings.map((r, ri) => (
-          <div
-            key={ri}
-            className={`absolute rounded-full border border-dashed pointer-events-none ${r.cls}`}
-            style={{
-              width: r.size,
-              height: r.size,
-              animation: ri % 2 === 0 ? "orbitCW 10s linear infinite" : "orbitCCW 14s linear infinite",
-            }}
-          >
+        <div
+          key={ri}
+          className={`absolute rounded-full border border-dashed pointer-events-none ${r.cls}`}
+          style={{
+            width: r.size,
+            height: r.size,
+            animation: ri % 2 === 0 ? "orbitCW 10s linear infinite" : "orbitCCW 14s linear infinite",
+          }}
+        >
           {r.nodes.map((deg) => {
-            const rad  = (deg * Math.PI) / 180;
+            const rad = (deg * Math.PI) / 180;
             const half = r.size / 2;
-            const dr   = r.dotPx / 2;
+            const dr = r.dotPx / 2;
             return (
               <div
                 key={deg}
@@ -565,8 +565,8 @@ function OrbitRings() {
                 style={{
                   width: r.dotPx,
                   height: r.dotPx,
-                  left:  half + half * Math.cos(rad) - dr,
-                  top:   half + half * Math.sin(rad) - dr,
+                  left: half + half * Math.cos(rad) - dr,
+                  top: half + half * Math.sin(rad) - dr,
                   animation: `pulseDot 3s ease-in-out infinite ${deg * 8}ms`,
                 }}
               />
@@ -600,7 +600,7 @@ function WhyChoosePanel() {
             flex items-center justify-center
             border border-slate-100/70
             shadow-[0_12px_40px_rgba(99,102,241,0.10),0_2px_8px_rgba(0,0,0,0.04)]"
-             style={{ animation: "floatCube 4.5s ease-in-out infinite" }}>
+            style={{ animation: "floatCube 4.5s ease-in-out infinite" }}>
             <IvorxMark />
           </div>
         </div>
@@ -721,10 +721,10 @@ function ChatAsset() {
 
       {/* Decorative spheres */}
       {([
-        { w: 18, top: 8,  right: 18,   bg: "linear-gradient(135deg,#c7d2fe,#a5b4fc)", sh: "0 3px 10px rgba(99,102,241,0.28)" },
-        { w: 10, top: 58, right: 5,    bg: "linear-gradient(135deg,#e0e7ff,#c7d2fe)", sh: "0 2px 6px rgba(99,102,241,0.18)"  },
-        { w: 8,  top: 26, left: 8,     bg: "linear-gradient(135deg,#dbeafe,#bfdbfe)", sh: "0 2px 5px rgba(59,130,246,0.18)"  },
-        { w: 6,  bottom: 12, left: 38, bg: "linear-gradient(135deg,#ede9fe,#ddd6fe)", sh: "0 1px 4px rgba(139,92,246,0.16)"  },
+        { w: 18, top: 8, right: 18, bg: "linear-gradient(135deg,#c7d2fe,#a5b4fc)", sh: "0 3px 10px rgba(99,102,241,0.28)" },
+        { w: 10, top: 58, right: 5, bg: "linear-gradient(135deg,#e0e7ff,#c7d2fe)", sh: "0 2px 6px rgba(99,102,241,0.18)" },
+        { w: 8, top: 26, left: 8, bg: "linear-gradient(135deg,#dbeafe,#bfdbfe)", sh: "0 2px 5px rgba(59,130,246,0.18)" },
+        { w: 6, bottom: 12, left: 38, bg: "linear-gradient(135deg,#ede9fe,#ddd6fe)", sh: "0 1px 4px rgba(139,92,246,0.16)" },
       ] as const).map((s, i) => (
         <div
           key={i}

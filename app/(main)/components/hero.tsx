@@ -17,17 +17,16 @@ export default function Hero() {
       <div className="hero-container">
 
         {/* TOP BADGE */}
-        <div className="rating-badge">
-          <span className="stars">★★★★</span>
-          <span className="trustpilot">Trustpilot</span>
+        <div className="rating-badge flex items-center justify-center gap-2">
+          <span className="font-bold text-slate-800">IVORIX</span>
           <span className="divider">|</span>
-          <span className="score">4.8 Reviews</span>
+          <span className="score">Digital Marketing · IT Solutions · Web Development · SEO</span>
         </div>
 
         {/* HEADING */}
         <h1 className="headline">
-          Design Smart{" "}
-          <span className="icon-inline">
+          Empowering Businesses{" "}
+          <span className="icon-inline mx-1">
             <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
               <rect width="48" height="48" rx="12" fill="#6366f1" />
               <path
@@ -39,26 +38,31 @@ export default function Hero() {
               />
             </svg>
           </span>{" "}
-          Workflows
-          <br />
-          That Power Your{" "}
-          <span className="highlight">
-            AI Agents
+          Through Technology &{" "}
+   
+          <span className="highlight ml-1">
+            Digital Innovation
           </span>
         </h1>
 
         {/* SUBTEXT */}
         <p className="subtext">
-          Automate your daily tasks with smart AI agents designed to improve
-          efficiency, reduce effort, and deliver faster results.
+          At IVORIX, we help businesses grow with innovative digital solutions, cutting-edge web development, result-driven digital marketing, and powerful SEO strategies that create measurable success.
         </p>
 
-        {/* BUTTON */}
-        <Link href="/" >
-        <button  className="cta-btn">
-          Get Started Free
-        </button>
-        </Link>
+        {/* BUTTONS */}
+        <div className="flex gap-4 items-center justify-center mt-8 relative z-10">
+          <Link href="/services">
+            <button className="cta-btn">
+              Get Started
+            </button>
+          </Link>
+          {/* <Link href="/services">
+            <button className="px-8 py-[18px] rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold transition-all">
+              Our Services
+            </button>
+          </Link> */}
+        </div>
 
         {/* VISUAL */}
         <div className="hero-visual">
@@ -86,9 +90,9 @@ export default function Hero() {
           </div> */}
 
           {/* CENTER IMAGE */}
-       
 
-{/*          
+
+          {/*          
           <div className="right-col">
 
             <div className="card cal-card">
@@ -146,7 +150,7 @@ export default function Hero() {
           <div className="ticker-track">
             {[...Array(4)].map((_, trackIndex) => (
               <div key={trackIndex} className="ticker-set">
-                {["TechCorp", "InnovateAI", "CloudBase", "DataFlow", "AutoMate"].map((name, i) => (
+                {["Web Development", "App Development", "SEO Optimization", "Digital Marketing", "Custom IT Solutions"].map((name, i) => (
                   <div key={`${trackIndex}-${i}`} className="ticker-card">
                     <div className="ticker-logo">
                       <div className="ticker-logo-inner"></div>

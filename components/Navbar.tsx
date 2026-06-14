@@ -5,133 +5,35 @@ import logo from '@/public/logo.png'
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="navbar-inner">
+    <nav className="fixed top-[20px] left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[960px] z-[100]">
+      <div className="flex items-center justify-between bg-white/45 backdrop-blur-[20px] border border-white/70 rounded-2xl px-5 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
         {/* Logo */}
-        <Link href="/" className="logo flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2.5 no-underline">
             <Image
             src={logo}
             alt="Ivorx Logo"
-            width={40}
-            height={40}
+            width={56}
+            height={56}
+            className="-my-2"
           />  
-          <span className="logo-text">Ivorix</span>
+          <span className="text-[15px] font-bold text-[#111] tracking-[-0.3px]">Ivorix</span>
         </Link>
-        <ul className="nav-links">
-          <li><Link href="/">Home</Link></li>
-          <Link href="/about">About</Link>
+        <ul className="hidden sm:flex list-none gap-8 m-0 p-0 items-center">
+          <li><Link href="/" className="text-[14px] font-medium text-[#444] no-underline transition-colors duration-200 hover:text-[#111]">Home</Link></li>
+          <li><Link href="/about" className="text-[14px] font-medium text-[#444] no-underline transition-colors duration-200 hover:text-[#111]">About</Link></li>
           {/* <li><Link href="#">Use Cases</Link></li> */}
-          <li><Link href="/services">Services</Link></li>
+          <li><Link href="/services" className="text-[14px] font-medium text-[#444] no-underline transition-colors duration-200 hover:text-[#111]">Services</Link></li>
           {/* <li><Link href="#">Pricing</Link></li> */}
-          <li><Link href='#'>Contacts</Link></li>
+          <li><Link href='#' className="text-[14px] font-medium text-[#444] no-underline transition-colors duration-200 hover:text-[#111]">Contacts</Link></li>
         </ul>
 
         {/* CTA */}
-        <Link href="#" className="login-btn" style={{
-          display: "inline-block",
-          background: "linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%)",
-          color: "#fff",
-          fontSize: "13px",
-          fontWeight: 600,
-          padding: "9px 28px",
-          borderRadius: "10px",
-          textDecoration: "none",
-          letterSpacing: "0.4px",
-          border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: "0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 14px rgba(0,0,0,0.35)",
-        }}>LET'S TALK</Link>
+        <Link href="#" className="inline-block bg-gradient-to-b from-[#2a2a2a] to-[#0a0a0a] text-white text-[13px] font-semibold px-7 py-[9px] rounded-[10px] no-underline tracking-[0.4px] border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),_0_4px_14px_rgba(0,0,0,0.35)] transition-all duration-200 hover:bg-gradient-to-b hover:from-[#3a3a3a] hover:to-[#1a1a1a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_6px_20px_rgba(0,0,0,0.45)] hover:-translate-y-px active:translate-y-0 active:shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
+          LET'S TALK
+        </Link>
       </div>
 
-      <style jsx>{`
-        .navbar {
-          position: fixed;
-          top: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: calc(100% - 48px);
-          max-width: 960px;
-          z-index: 100;
-        }
 
-        .navbar-inner {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          background: rgba(255, 255, 255, 0.45);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.7);
-          border-radius: 16px;
-          padding: 12px 20px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-        }
-
-        .logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-        }
-
-        .logo-text {
-          font-size: 15px;
-          font-weight: 700;
-          color: #111;
-          letter-spacing: -0.3px;
-        }
-
-        .nav-links {
-          display: flex;
-          list-style: none;
-          gap: 32px;
-          margin: 0;
-          padding: 0;
-        }
-
-        .nav-links a {
-          font-size: 14px;
-          font-weight: 500;
-          color: #444;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-          color: #111;
-        }
-
-        .login-btn {
-          display: inline-block;
-          background: linear-gradient(180deg, #2a2a2a 0%, #0a0a0a 100%);
-          color: #fff;
-          font-size: 13px;
-          font-weight: 600;
-          padding: 9px 28px;
-          border-radius: 10px;
-          text-decoration: none;
-          letter-spacing: 0.4px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 4px 14px rgba(0,0,0,0.35);
-          transition: box-shadow 0.2s, transform 0.15s, background 0.2s;
-        }
-
-        .login-btn:hover {
-          background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
-          box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 6px 20px rgba(0,0,0,0.45);
-          transform: translateY(-1px);
-        }
-
-        .login-btn:active {
-          transform: translateY(0);
-          box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-        }
-
-        @media (max-width: 640px) {
-          .nav-links {
-            display: none;
-          }
-        }
-      `}</style>
     </nav>
   );
 }
