@@ -4,7 +4,7 @@ import { useCallback,useEffect, useRef } from 'react'
 
 
 export default function CountUp({
-  to,
+    to,
   from = 0,
   direction = 'up',
   delay = 0,
@@ -12,8 +12,8 @@ export default function CountUp({
   className = '',
   startWhen = true,
   separator = '',
-  onStart = undefined,
-  onEnd = undefined
+  onStart,
+  onEnd
 }) {
   const ref = useRef(null);
   const motionValue = useMotionValue(direction === 'down' ? to : from);

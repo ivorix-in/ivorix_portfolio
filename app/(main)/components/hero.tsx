@@ -835,42 +835,99 @@ export default function Hero() {
 
         /* MOBILE */
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
+          .hero {
+            padding-top: 80px;
+            min-height: 100svh;
+          }
+
+          .hero::before {
+            width: 400px;
+            height: 400px;
+          }
+
+          .hero-glow-1, .hero-glow-2, .hero-glow-3 {
+            width: 250px;
+            height: 250px;
+            filter: blur(40px);
+          }
+
+          .hero-container {
+            padding: 0 16px;
+          }
 
           .headline {
-            font-size: 38px;
+            font-size: 32px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            padding: 0 10px;
+          }
+
+          .subtext {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 0 10px;
+          }
+
+          .rating-badge {
+            font-size: 10px;
+            flex-wrap: wrap;
+            text-align: center;
+          }
+
+          .score {
+            display: inline-block;
+            margin-top: 4px;
+          }
+
+          .cta-btn {
+            width: 100%;
+            max-width: 300px;
+            padding: 14px 0;
+            font-size: 14px;
           }
 
           .hero-visual {
-            height: auto;
-
+            height: 380px;
+            margin-top: 30px;
             display: flex;
-
-            flex-direction: column;
-
+            justify-content: center;
             align-items: center;
-
-            gap: 18px;
           }
 
           .left-col,
-          .right-col,
-          .center-image-wrap {
-            position: relative;
-
-            top: unset;
-            left: unset;
-            right: unset;
-
-            transform: none;
-
-            width: 100%;
-
-            max-width: 300px;
+          .right-col {
+            display: none;
           }
 
           .center-image-wrap {
-            height: 360px;
+            position: relative;
+            top: unset;
+            left: unset;
+            right: unset;
+            transform: none !important;
+            width: 100%;
+            max-width: 320px;
+            height: 380px;
+            animation: floatImageMobile 4s ease-in-out infinite;
+          }
+
+          @keyframes floatImageMobile {
+            0%, 100% { transform: translateY(0px) !important; }
+            50% { transform: translateY(-10px) !important; }
+          }
+
+          .ticker-outer {
+            padding: 20px 0 10px;
+            margin-top: 10px;
+          }
+          
+          .ticker-card {
+            padding: 12px 20px;
+          }
+          
+          .ticker-name {
+            font-size: 13px;
           }
         }
 

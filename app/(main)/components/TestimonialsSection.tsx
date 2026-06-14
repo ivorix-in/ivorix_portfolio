@@ -38,10 +38,10 @@ export default function TestimonialSection() {
   ];
 
   return (
-    <section className="w-full bg-[#FAFBFD] py-24 px-6 md:px-12 lg:px-16 overflow-hidden">
+    <section className="w-full bg-[#FAFBFD] py-16 px-6 md:px-12 lg:px-16 max-md:py-10 max-md:px-4 overflow-hidden">
       <div className="max-w-[1200px] mx-auto">
         {/* Top Header */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-16">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-10">
           {/* Left Column */}
           <div className="flex-1 max-w-[640px]">
             {/* Badge */}
@@ -53,7 +53,7 @@ export default function TestimonialSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="mt-7 text-[46px] md:text-[56px] lg:text-[68px] font-[800] leading-[1.04] tracking-[-0.045em] text-[#0f172a]">
+            <h2 className="mt-7 text-[46px] md:text-[56px] lg:text-[68px] max-md:text-[36px] font-[800] leading-[1.04] tracking-[-0.045em] text-[#0f172a]">
               Why Businesses <span className="text-[#4B7EFF] bg-gradient-to-r from-[#4B7EFF] to-[#3B82F6] bg-clip-text text-transparent">Trust</span>
               <span className="block mt-1 md:mt-2">IVORIX</span>
             </h2>
@@ -68,7 +68,7 @@ export default function TestimonialSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
           {/* Left Column */}
           <div className="flex flex-col gap-6 lg:gap-8">
             {testimonials.slice(0, 2).map((item) => (
@@ -112,8 +112,8 @@ function Card({
     <div
       className={`relative w-full rounded-2xl overflow-hidden transition-all duration-500 ease-out flex flex-col justify-between ${
         featured
-          ? "h-[464px] bg-gradient-to-br from-blue-50 via-indigo-50 to-white border-blue-100/70 p-8 lg:p-9 shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:-translate-y-1"
-          : "h-[220px] bg-white border border-slate-100/90 p-7 lg:p-8 shadow-sm hover:shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:border-blue-100/70 hover:-translate-y-1"
+          ? "h-[464px] max-md:h-auto max-md:min-h-[300px] bg-gradient-to-br from-blue-50 via-indigo-50 to-white border-blue-100/70 p-8 lg:p-9 shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:-translate-y-1"
+          : "h-[220px] max-md:h-auto max-md:min-h-[200px] bg-white border border-slate-100/90 p-7 lg:p-8 shadow-sm hover:shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:border-blue-100/70 hover:-translate-y-1"
       }`}
       style={{
         borderWidth: featured ? "2px" : "1px",

@@ -321,7 +321,7 @@ function HeroSection() {
       style={{ background: "linear-gradient(155deg, #f7f8ff 0%, #eef1fd 55%, #f4f6ff 100%)" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-14 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center py-10 sm:py-12 lg:py-16">
 
           {/* ── Left ── */}
           <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
@@ -334,8 +334,8 @@ function HeroSection() {
             </FadeUp>
 
             <FadeUp visible={visible} delay={80}>
-              <h1 className="font-bold text-slate-900 leading-[1.12] tracking-tight mb-5
-                text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl">
+              <h1 className="font-bold text-slate-900 leading-[1.15] tracking-tight mb-5
+                text-[28px] sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl max-md:px-2">
                 We Build Technology
                 <br className="hidden sm:block" /> That Moves Businesses{" "}
                 <span className="text-blue-600">Forward</span>
@@ -409,31 +409,30 @@ function StatsBanner() {
           <div
             key={i}
             className={[
-              "flex items-center gap-3 sm:gap-4 px-5 sm:px-7 py-5 sm:py-6",
+              "flex max-md:flex-col items-center max-md:text-center gap-3 sm:gap-4 px-3 sm:px-7 py-4 sm:py-6",
               fu(visible, i * 70),
               i % 2 === 0 ? "border-r border-slate-100" : "",
               i < 2 ? "border-b border-slate-100 lg:border-b-0" : "",
               i < 3 ? "lg:border-r lg:border-slate-100" : "",
             ].join(" ")}
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50/70 flex-shrink-0
+            <div className="w-12 h-12 sm:w-12 sm:h-12 rounded-xl bg-blue-50/70 flex-shrink-0
               flex items-center justify-center text-blue-600 shadow-sm shadow-blue-100/30">
               {s.icon}
             </div>
             <div>
-              <p className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 leading-none flex items-center">
-                <CountUp
-                  from={0}
-                  to={s.value}
-                  separator=","
-                  direction="up"
-                  duration={2}
-                  delay={0}
-                  className="count-up-text"
-                />
-                <span>{s.suffix}</span>
-              </p>
-              <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-1">
+              <CountUp
+                from={0}
+                to={s.value}
+                separator=","
+                direction="up"
+                duration={2}
+                delay={0}
+                className="count-up-text"
+                onStart={() => { }}
+                onEnd={() => { }}
+              />
+              <p className="text-[12px] sm:text-xs font-medium text-slate-500 mt-1">
                 {s.label}
               </p>
             </div>
@@ -481,29 +480,19 @@ function BeliefsGrid() {
       <div className={`text-center mb-8 ${fu(visible)}`}>
         <Badge>What We Believe In</Badge>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 max-md:px-4">
         {BELIEFS.map((b, i) => (
           <div
             key={i}
-            className={[
-              "bg-white rounded-2xl border border-slate-100/90 shadow-sm",
-              "hover:shadow-md hover:-translate-y-1 hover:border-blue-100/60",
-              "flex flex-col items-center text-center p-6 sm:p-8",
-              "cursor-default",
-              fu(visible, i * 90),
-            ].join(" ")}
+            className={`bg-white rounded-2xl border border-slate-100/80 p-4 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${fu(visible, 60 + i * 80)}`}
             style={{ transitionDuration: "600ms", transitionProperty: "all" }}
           >
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl
-              bg-blue-50/70 border border-blue-100/50
-              flex items-center justify-center mb-4 sm:mb-5 text-blue-600
-              shadow-sm shadow-blue-100/30">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-50 border border-slate-100
+              flex items-center justify-center text-slate-700 shadow-sm mb-4 sm:mb-5">
               {b.icon}
             </div>
-            <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 sm:mb-2">
-              {b.title}
-            </h3>
-            <p className="text-xs text-slate-400 leading-relaxed">{b.desc}</p>
+            <h3 className="text-[14px] sm:text-[15px] font-bold text-slate-900 mb-1.5 sm:mb-2">{b.title}</h3>
+            <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed">{b.desc}</p>
           </div>
         ))}
       </div>
@@ -584,8 +573,8 @@ function WhyChoosePanel() {
     <div
       ref={ref}
       className={`bg-[#F8FAFC] rounded-3xl border border-slate-100
-        p-6 sm:p-10 lg:p-14
-        grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center
+        p-6 sm:p-10 lg:p-14 max-md:mx-4
+        grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center
         ${fu(visible)}`}
     >
       {/* ── Left: ecosystem graphic (hidden on very small, shown from sm up) ── */}
@@ -764,7 +753,7 @@ function CTABanner() {
     <div
       ref={ref}
       className={`relative overflow-hidden rounded-3xl border border-indigo-100/55
-        p-8 sm:p-12 lg:p-14
+        p-8 sm:p-12 lg:p-14 max-md:mx-4 max-md:p-6
         grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center
         ${fu(visible)}`}
       style={{ background: "linear-gradient(135deg, #EEF2FF 0%, rgba(240,249,255,0.12) 50%, #F5F3FF 100%)" }}

@@ -34,7 +34,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#fbfbfb] py-24 px-6 md:px-12 lg:px-16 overflow-hidden">
+    <section className="w-full bg-[#fbfbfb] py-16 max-md:py-10 px-6 md:px-12 lg:px-16 max-md:px-4 overflow-hidden">
       <div className="max-w-[880px] mx-auto">
         {/* Badge */}
         <div className="flex justify-center">
@@ -48,13 +48,13 @@ export default function FAQSection() {
 
         {/* Heading */}
         <div className="text-center mt-8">
-          <h2 className="text-[44px] md:text-[54px] lg:text-[64px] font-[750] leading-[1.05] tracking-[-0.04em] text-[#0A0A0A]">
+          <h2 className="text-[44px] md:text-[54px] lg:text-[64px] max-md:text-[36px] font-[750] leading-[1.05] tracking-[-0.04em] text-[#0A0A0A]">
             Frequently <span className="text-[#4B7EFF]">Asked</span> Questions
             <br />
             About Our Services
           </h2>
 
-          <p className="max-w-[680px] mx-auto mt-6 text-[18px] lg:text-[20px] leading-[1.5] text-[#8B8B8B] font-[450] tracking-[-0.02em]">
+          <p className="max-w-[680px] mx-auto mt-6 text-[18px] lg:text-[20px] max-md:text-[16px] leading-[1.5] text-[#8B8B8B] font-[450] tracking-[-0.02em]">
             Explore answers to commonly asked questions about our IT solutions, development processes, and support.
           </p>
         </div>
@@ -74,9 +74,9 @@ export default function FAQSection() {
                 {/* Question Trigger */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-8 py-7 flex items-center justify-between text-left cursor-pointer focus:outline-none select-none"
+                  className="w-full px-8 py-7 max-md:p-5 flex items-center justify-between text-left cursor-pointer focus:outline-none select-none"
                 >
-                  <h3 className="text-[18px] lg:text-[20px] font-semibold tracking-[-0.02em] text-[#111111] pr-4">
+                  <h3 className="text-[18px] lg:text-[20px] max-md:text-[16px] font-semibold tracking-[-0.02em] text-[#111111] pr-4">
                     {faq.question}
                   </h3>
 
@@ -94,7 +94,7 @@ export default function FAQSection() {
                   className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
                     }`}
                 >
-                  <div className="px-8 pb-7 text-[15px] lg:text-[16px] leading-[1.6] text-[#4B5563] font-[450] tracking-[-0.01em] border-t border-[#F3F4F6] pt-5">
+                  <div className="px-8 pb-7 max-md:px-5 max-md:pb-5 text-[15px] lg:text-[16px] leading-[1.6] text-[#4B5563] font-[450] tracking-[-0.01em] border-t border-[#F3F4F6] pt-5">
                     {faq.answer}
                   </div>
                 </div>
