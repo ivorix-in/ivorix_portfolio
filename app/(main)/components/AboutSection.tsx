@@ -421,18 +421,17 @@ function StatsBanner() {
               {s.icon}
             </div>
             <div>
-              <p className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 leading-none flex items-center">
-                <CountUp
-                  from={0}
-                  to={s.value}
-                  separator=","
-                  direction="up"
-                  duration={2}
-                  delay={0}
-                  className="count-up-text"
-                />
-                <span>{s.suffix}</span>
-              </p>
+           <CountUp
+  from={0}
+  to={s.value}
+  separator=","
+  direction="up"
+  duration={2}
+  delay={0}
+  className="count-up-text"
+  onStart={() => {}}
+  onEnd={() => {}}
+/>
               <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-1">
                 {s.label}
               </p>
