@@ -225,14 +225,25 @@ export default function Footer() {
           width: 100%;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           .footer-top {
             flex-direction: column;
             align-items: flex-start;
             gap: 24px;
+            padding: 32px 16px 24px;
           }
-          .social-btn { width: 58px; height: 58px; border-radius: 14px; }
-          .footer-links { flex-direction: column; align-items: flex-start; gap: 40px; }
+          .footer-heading {
+            font-size: 32px;
+          }
+          .social-icons {
+            flex-wrap: wrap;
+          }
+          .social-btn { width: 48px; height: 48px; border-radius: 12px; }
+          .social-btn svg { width: 20px; height: 20px; }
+          .footer-links-section {
+            padding: 0 16px 16px;
+          }
+          .footer-links { flex-direction: column; align-items: flex-start; gap: 32px; }
         }
       `}</style>
     </footer>

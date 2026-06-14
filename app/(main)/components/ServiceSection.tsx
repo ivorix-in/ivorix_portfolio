@@ -40,9 +40,9 @@ function GlobalAnimations() {
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
-interface StatItem   { icon: React.ReactNode; value: string; label: string }
+interface StatItem { icon: React.ReactNode; value: string; label: string }
 interface ServiceItem { icon: React.ReactNode; title: string; desc: string }
-interface StepItem   { num: string; title: string; desc: string; icon: React.ReactNode }
+interface StepItem { num: string; title: string; desc: string; icon: React.ReactNode }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Fade-up utility
@@ -84,82 +84,82 @@ function useVisible(threshold = 0.10) {
 const Icon = {
   Code: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
     </svg>
   ),
   Mobile: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+      <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" />
     </svg>
   ),
   Cloud: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
     </svg>
   ),
   Shield: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   ),
   BarChart: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-      <line x1="2" y1="20" x2="22" y2="20"/>
+      <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
+      <line x1="2" y1="20" x2="22" y2="20" />
     </svg>
   ),
   Settings: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="3"/>
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </svg>
   ),
   Search: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
     </svg>
   ),
   Lightbulb: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/>
-      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+      <line x1="9" y1="18" x2="15" y2="18" /><line x1="10" y1="22" x2="14" y2="22" />
+      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
     </svg>
   ),
   Rocket: () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
-      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
-      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
     </svg>
   ),
   Users: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   ),
   Briefcase: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2"/>
-      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 12h20"/>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><path d="M2 12h20" />
     </svg>
   ),
   Calendar: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="18" rx="2"/>
-      <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="3" y1="10" x2="21" y2="10"/>
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
     </svg>
   ),
   Globe: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
   ArrowRight: () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
     </svg>
   ),
 };
@@ -207,7 +207,7 @@ function HeroCube() {
         style={{ animation: 'orbitCW 22s linear infinite' }}
       >
         <Sphere size={13} style={{ top: -6.5, left: '50%', transform: 'translateX(-50%)' }} />
-        <Sphere size={8}  style={{ bottom: -4, right: '12%' }} />
+        <Sphere size={8} style={{ bottom: -4, right: '12%' }} />
       </div>
 
       {/* Inner orbit */}
@@ -264,7 +264,7 @@ function HeroCube() {
             height={80}
           />
           <span className="font-bold text-indigo-700 leading-none" style={{ fontSize: 'clamp(8px, 3.2%, 13px)', letterSpacing: '-0.2px' }}>
-            ivorx 
+            ivorx
           </span>
         </div>
         {/* Right face */}
@@ -319,8 +319,8 @@ function HeroCube() {
       </div>
 
       {/* Ambient spheres */}
-      <Sphere size={14} style={{ top: '9%', left: '4%',   animation: 'floatCube 5.5s ease-in-out infinite 0.6s' }} />
-      <Sphere size={7}  style={{ bottom: '18%', left: '0%', animation: 'floatCube 4s ease-in-out infinite 1.1s' }} />
+      <Sphere size={14} style={{ top: '9%', left: '4%', animation: 'floatCube 5.5s ease-in-out infinite 0.6s' }} />
+      <Sphere size={7} style={{ bottom: '18%', left: '0%', animation: 'floatCube 4s ease-in-out infinite 1.1s' }} />
     </div>
   );
 }
@@ -336,7 +336,7 @@ function HeroSection() {
       style={{ background: 'linear-gradient(155deg, #f7f8ff 0%, #eef1fd 55%, #f4f6ff 100%)' }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-14 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center py-10 sm:py-12 lg:py-16">
 
           {/* Left copy */}
           <div className="flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
@@ -349,8 +349,8 @@ function HeroSection() {
             </FadeUp>
 
             <FadeUp visible={visible} delay={80}>
-              <h1 className="font-bold text-slate-900 leading-[1.12] tracking-tight mb-5
-                text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl">
+              <h1 className="font-bold text-slate-900 leading-[1.15] tracking-tight mb-5
+                text-[28px] sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl max-md:px-2">
                 Technology Solutions<br className="hidden sm:block" />
                 {' '}Built for{' '}
                 <span className="text-blue-600">Your Success</span>
@@ -444,7 +444,7 @@ function ServiceCard({ item, visible, delay }: { item: ServiceItem; visible: boo
       onMouseLeave={() => setHover(false)}
       className={[
         'group relative bg-white rounded-2xl border border-slate-100/90',
-        'flex flex-col p-6 sm:p-7 cursor-default overflow-hidden',
+        'flex flex-col p-3 sm:p-7 cursor-default overflow-hidden',
         'transition-all duration-500',
         hover
           ? 'shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] border-blue-100/70 -translate-y-1'
@@ -463,19 +463,19 @@ function ServiceCard({ item, visible, delay }: { item: ServiceItem; visible: boo
 
       {/* Icon */}
       <div className={[
-        'w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-5',
+        'w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-5',
         'border transition-colors duration-300',
         hover
           ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/25'
           : 'bg-blue-50/70 border-blue-100/50 text-blue-600 shadow-sm shadow-blue-100/30',
       ].join(' ')}>
-        {item.icon}
+        <div className="scale-75 sm:scale-100">{item.icon}</div>
       </div>
 
-      <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 mb-2 leading-snug">
+      <h3 className="text-[11px] sm:text-[15px] font-bold text-slate-900 mb-1 sm:mb-2 leading-tight">
         {item.title}
       </h3>
-      <p className="text-xs sm:text-[13px] text-slate-400 leading-relaxed flex-1">
+      <p className="text-[9px] sm:text-[13px] text-slate-400 leading-snug sm:leading-relaxed flex-1">
         {item.desc}
       </p>
 
@@ -483,7 +483,7 @@ function ServiceCard({ item, visible, delay }: { item: ServiceItem; visible: boo
       <button
         className={[
           'inline-flex items-center gap-1.5 mt-5',
-          'text-[11px] sm:text-xs font-semibold tracking-wide',
+          'text-[10px] sm:text-xs font-semibold tracking-wide',
           'transition-colors duration-200',
           hover ? 'text-blue-600' : 'text-slate-400',
         ].join(' ')}
@@ -513,8 +513,8 @@ function ServicesGrid() {
         </p>
       </div>
 
-      {/* 3-col grid on desktop, 2-col on tablet, 1-col on mobile */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      {/* Strictly 2-col grid on mobile and tablet */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 max-md:px-2">
         {SERVICES.map((s, i) => (
           <ServiceCard key={i} item={s} visible={visible} delay={80 + i * 80} />
         ))}
@@ -527,10 +527,10 @@ function ServicesGrid() {
 // ── PROCESS SECTION ──────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
 const STEPS: StepItem[] = [
-  { num: '01', title: 'Discover', desc: 'We understand your business and goals.',  icon: <Icon.Search />  },
-  { num: '02', title: 'Plan',     desc: 'We create a strategy tailored to your needs.', icon: <Icon.Lightbulb /> },
-  { num: '03', title: 'Build',    desc: 'We build scalable and secure solutions.',  icon: <Icon.Code />    },
-  { num: '04', title: 'Deliver',  desc: 'We deliver, support, and help you grow.',  icon: <Icon.Rocket />  },
+  { num: '01', title: 'Discover', desc: 'We understand your business and goals.', icon: <Icon.Search /> },
+  { num: '02', title: 'Plan', desc: 'We create a strategy tailored to your needs.', icon: <Icon.Lightbulb /> },
+  { num: '03', title: 'Build', desc: 'We build scalable and secure solutions.', icon: <Icon.Code /> },
+  { num: '04', title: 'Deliver', desc: 'We deliver, support, and help you grow.', icon: <Icon.Rocket /> },
 ];
 
 /** Dashed connector line between steps — hidden on mobile, shown md+ */
@@ -556,10 +556,10 @@ function ProcessSection() {
   return (
     <div
       ref={ref}
-      className={`bg-[#F8FAFC] rounded-3xl border border-slate-100 p-6 sm:p-10 lg:p-14 ${fu(visible)}`}
+      className={`bg-[#F8FAFC] rounded-3xl border border-slate-100 p-6 sm:p-10 lg:p-14 max-md:mx-4 ${fu(visible)}`}
     >
       {/* Header */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 mb-10 sm:mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-8 sm:mb-10">
         <div className={`lg:col-span-5 ${fu(visible, 60)}`}>
           <Badge>Our Approach</Badge>
           <h2 className="font-bold text-slate-900 tracking-tight
@@ -605,21 +605,21 @@ function ProcessSection() {
             ))}
           </div>
 
-          {/* mobile: 2×2 grid */}
-          <div className="grid grid-cols-2 gap-4 md:hidden">
+          {/* mobile: 2x2 grid down to 320px */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 md:hidden">
             {STEPS.map((step, i) => (
               <div
                 key={i}
                 className={`flex flex-col bg-white rounded-2xl border border-slate-100/90 p-4 shadow-sm ${fu(visible, 160 + i * 70)}`}
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-50/70 border border-blue-100/50
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50/70 border border-blue-100/50
                   flex items-center justify-center text-blue-600
-                  shadow-sm shadow-blue-100/30 mb-3">
-                  {step.icon}
+                  shadow-sm shadow-blue-100/30 mb-2 sm:mb-3">
+                  <div className="scale-75 sm:scale-100">{step.icon}</div>
                 </div>
-                <span className="text-[10px] font-bold text-blue-500/80 tracking-widest mb-1">{step.num}</span>
-                <p className="text-xs font-bold text-slate-900 mb-1 leading-snug">{step.title}</p>
-                <p className="text-[11px] text-slate-400 leading-relaxed">{step.desc}</p>
+                <span className="text-[9px] sm:text-[10px] font-bold text-blue-500/80 tracking-widest mb-1">{step.num}</span>
+                <p className="text-[11px] sm:text-xs font-bold text-slate-900 mb-1 leading-snug">{step.title}</p>
+                <p className="text-[9px] sm:text-[11px] text-slate-400 leading-snug sm:leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -633,10 +633,10 @@ function ProcessSection() {
 // ── STATS BANNER ─────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
 const STATS: StatItem[] = [
-  { icon: <Icon.Users />,     value: '50+',  label: 'Happy Clients'       },
-  { icon: <Icon.Briefcase />, value: '120+', label: 'Projects Delivered'  },
-  { icon: <Icon.Calendar />,  value: '10+',  label: 'Years of Experience' },
-  { icon: <Icon.Globe />,     value: '15+',  label: 'Countries Served'    },
+  { icon: <Icon.Users />, value: '50+', label: 'Happy Clients' },
+  { icon: <Icon.Briefcase />, value: '120+', label: 'Projects Delivered' },
+  { icon: <Icon.Calendar />, value: '10+', label: 'Years of Experience' },
+  { icon: <Icon.Globe />, value: '15+', label: 'Countries Served' },
 ];
 
 function StatsBanner() {
@@ -658,7 +658,7 @@ function StatsBanner() {
           <div
             key={i}
             className={[
-              'flex items-center gap-3 sm:gap-4 px-5 sm:px-7 py-5 sm:py-6',
+              'flex max-md:flex-col items-center max-md:text-center gap-3 sm:gap-4 px-3 sm:px-7 py-4 sm:py-6',
               fu(visible, i * 70),
               // Mobile column divider (left col only)
               i % 2 === 0 ? 'border-r border-slate-100' : '',
@@ -668,7 +668,7 @@ function StatsBanner() {
               i < 3 ? 'lg:border-r lg:border-slate-100' : '',
             ].join(' ')}
           >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50/70 flex-shrink-0
+            <div className="w-12 h-12 sm:w-12 sm:h-12 rounded-xl bg-blue-50/70 flex-shrink-0
               flex items-center justify-center text-blue-600 shadow-sm shadow-blue-100/30">
               {s.icon}
             </div>
@@ -676,7 +676,7 @@ function StatsBanner() {
               <p className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 leading-none">
                 {s.value}
               </p>
-              <p className="text-[11px] sm:text-xs font-medium text-slate-500 mt-1">{s.label}</p>
+              <p className="text-[12px] sm:text-xs font-medium text-slate-500 mt-1">{s.label}</p>
             </div>
           </div>
         ))}
@@ -736,7 +736,7 @@ function CTAMark() {
             width={70}
             height={60}
           />
-          
+
           <div className="space-y-1.5 px-4 w-full">
             <div className="h-1 rounded-full bg-slate-200/80 w-full" />
             <div className="h-1 rounded-full bg-slate-200/60 w-4/5" />
@@ -746,9 +746,9 @@ function CTAMark() {
 
       {/* Decorative dots */}
       {([
-        { w: 16, top: 10,  right: 16, bg: 'linear-gradient(135deg,#c7d2fe,#a5b4fc)', sh: '0 3px 10px rgba(99,102,241,0.26)' },
-        { w: 9,  top: 55,  right: 4,  bg: 'linear-gradient(135deg,#e0e7ff,#c7d2fe)', sh: '0 2px 6px rgba(99,102,241,0.16)' },
-        { w: 7,  top: 28,  left: 6,   bg: 'linear-gradient(135deg,#dbeafe,#bfdbfe)', sh: '0 2px 5px rgba(59,130,246,0.14)' },
+        { w: 16, top: 10, right: 16, bg: 'linear-gradient(135deg,#c7d2fe,#a5b4fc)', sh: '0 3px 10px rgba(99,102,241,0.26)' },
+        { w: 9, top: 55, right: 4, bg: 'linear-gradient(135deg,#e0e7ff,#c7d2fe)', sh: '0 2px 6px rgba(99,102,241,0.16)' },
+        { w: 7, top: 28, left: 6, bg: 'linear-gradient(135deg,#dbeafe,#bfdbfe)', sh: '0 2px 5px rgba(59,130,246,0.14)' },
       ] as const).map((dot, i) => (
         <div key={i} className="absolute rounded-full" style={{
           width: dot.w, height: dot.w,
@@ -777,7 +777,7 @@ function CTABanner() {
     <div
       ref={ref}
       className={`relative overflow-hidden rounded-3xl border border-indigo-100/55
-        p-8 sm:p-12 lg:p-14
+        p-8 sm:p-12 lg:p-14 max-md:mx-4 max-md:p-6
         grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center
         ${fu(visible)}`}
       style={{ background: 'linear-gradient(135deg, #EEF2FF 0%, rgba(240,249,255,0.12) 50%, #F5F3FF 100%)' }}
@@ -815,7 +815,7 @@ function CTABanner() {
       {/* Right: graphic */}
       <div className={`lg:col-span-5 relative z-10 flex justify-center lg:justify-end ${fu(visible, 170)}`}>
         <CTAMark />
-        
+
       </div>
     </div>
   );

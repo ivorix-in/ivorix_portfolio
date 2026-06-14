@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 import TestimonialSection from "../(main)/components/TestimonialsSection";
 import FAQSection from "../(main)/components/FAQSection";
 
@@ -13,23 +9,7 @@ import StepsSection from "./components/StepsSection";
 import IndustriesSection from "./components/IndustriesSection";
 import AboutSection from "./components/AboutSection";
 
-import Loader from "@/components/Loader";
-
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  }
-
   return (
     <main>
       <Navbar />

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function IndustriesSection() {
   return (
-    <section className="w-full bg-[#f5f5f5] py-24 px-4">
+    <section className="w-full bg-[#f5f5f5] py-16 max-md:py-10 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Top Content */}
         <div className="flex flex-col items-center text-center">
@@ -17,14 +17,14 @@ export default function IndustriesSection() {
           </div>
 
           {/* Heading */}
-          <h2 className="max-w-4xl text-[58px] leading-[1.05] font-semibold tracking-[-2px] text-black">
+          <h2 className="max-w-4xl text-[58px] max-md:text-[36px] leading-[1.05] font-semibold tracking-[-2px] text-black">
             Businesses We
             <br />
             <span className="text-[#4d7cff]">Transform</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-5 max-w-xl text-[15px] leading-7 text-[#8c8c8c]">
+          <p className="mt-5 max-w-xl text-[15px] max-md:text-[14px] leading-7 text-[#8c8c8c]">
             We deliver tailored digital solutions and innovative technology 
             <br />
             strategies for every industry to help you scale and succeed.
@@ -32,7 +32,7 @@ export default function IndustriesSection() {
         </div>
 
         {/* Cards */}
-        <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Card 1 */}
           <div className="group relative bg-white rounded-2xl border border-slate-100/90 p-6 sm:p-7 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:border-blue-100/70 hover:-translate-y-1 shadow-sm">
             <h3 className="text-2xl font-bold text-slate-900 mb-2 leading-snug">
