@@ -8,11 +8,14 @@ export default function Footer() {
     <footer className="footer">
       {/* Heading */}
       <div className="footer-top">
-        <h2 className="footer-heading">
-          Modern Workflows Powered
-          <br />
-          by Smart AI Agents
-        </h2>
+        <div className="flex flex-col gap-3">
+          <h2 className="footer-heading">
+            IVORIX Technologies
+          </h2>
+          <p className="text-[#64748b] text-[16px] md:text-[18px] max-w-[600px] leading-relaxed">
+            Building Secure Digital Experiences through innovative IT solutions, modern web development, and result-driven digital marketing strategies.
+          </p>
+        </div>
 
         {/* Social Icons */}
         <div className="social-icons">
@@ -46,31 +49,39 @@ export default function Footer() {
       {/* Links Grid — centered */}
       <div className="footer-links-section">
         <div className="footer-links">
+          <div className="footer-col" style={{ maxWidth: '320px' }}>
+            <h4>About IVORIX</h4>
+            <p className="text-[#64748b] text-[14px] leading-relaxed mt-2">
+              Building Secure Digital Experiences through innovative technology solutions and digital transformation. We help businesses scale in the digital era.
+            </p>
+          </div>
           <div className="footer-col">
-            <h4>[Company]</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><Link href="#">About</Link></li>
-              <li><Link href="#">Careers</Link></li>
-              <li><Link href="#">Blog</Link></li>
-              <li><Link href="#">Contact</Link></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/portfolio">Portfolio</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h4>[Product]</h4>
+            <h4>Services</h4>
             <ul>
-              <li><Link href="#">Features</Link></li>
-              <li><Link href="#">Pricing</Link></li>
-              <li><Link href="#">Use Cases</Link></li>
-              <li><Link href="#">Integrations</Link></li>
-              <li><Link href="#">API</Link></li>
+              <li><Link href="#">Web Development</Link></li>
+              <li><Link href="#">App Development</Link></li>
+              <li><Link href="#">Digital Marketing</Link></li>
+              <li><Link href="#">SEO Services</Link></li>
+              <li><Link href="#">IT Solutions</Link></li>
             </ul>
           </div>
           <div className="footer-col">
-            <h4>[Resources]</h4>
+            <h4>Contact Us</h4>
             <ul>
-              <li><Link href="#">Help Center</Link></li>
-              <li><Link href="#">Documentation</Link></li>
-              <li><Link href="#">FAQ</Link></li>
+              <li><a href="mailto:info@ivorix.in">Email: info@ivorix.in</a></li>
+              <li className="text-[#64748b] text-[14px]">Phone: +91 8111903156</li>
+              <li className="text-[#64748b] text-[14px]">Alt: +91 9072909294</li>
+              <li className="text-[#64748b] text-[14px] mt-1">Kerala, India</li>
             </ul>
           </div>
         </div>
@@ -78,7 +89,7 @@ export default function Footer() {
 
       {/* Brand name — blur at BOTTOM of this section */}
       <div className="footer-brand-wrapper">
-        <div className="footer-brand">IntelliAgent</div>
+        <div className="footer-brand">IVORIX </div>
         {/* Blur is at bottom, fading out the brand text */}
         <GradualBlur
           target="parent"
@@ -90,6 +101,11 @@ export default function Footer() {
           opacity={1}
         />
       </div>
+{/* 
+      <div className="flex flex-col items-center justify-center pb-8 pt-2 gap-2 text-[#64748b] text-[14px]">
+        <p className="font-semibold text-[#0f172a] text-[16px]">Innovate • Develop • Elevate</p>
+        <p>© 2026 IVORIX Technologies. All Rights Reserved.</p>
+      </div> */}
 
       <style jsx>{`
         .footer {
@@ -99,17 +115,21 @@ export default function Footer() {
 
         .footer-top {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
+          justify-content: space-between;
           align-items: center;
-          gap: 36px;
-          padding: 80px 24px 48px;
+          gap: 16px;
+          padding: 48px 24px 24px;
+          max-width: 1200px;
+          margin: 0 auto;
+          width: 100%;
         }
 
         .footer-heading {
           font-size: clamp(28px, 3.5vw, 42px);
           font-weight: 700;
           color: #0f172a;
-          text-align: center;
+          text-align: left;
           letter-spacing: -0.5px;
           line-height: 1.25;
           margin: 0;
@@ -141,21 +161,23 @@ export default function Footer() {
           color: #64748b;
         }
 
-        /* Links — center aligned */
+        /* Links — full width */
         .footer-links-section {
-          padding: 0 24px 64px;
+          padding: 0 24px 16px;
+          max-width: 1200px;
+          margin: 0 auto;
+          width: 100%;
         }
 
         .footer-links {
           display: flex;
-          gap: 80px;
-          justify-content: center;   /* CENTER ആക്കി */
-          max-width: 860px;
-          margin: 0 auto;
+          gap: 40px;
+          justify-content: space-between;
+          width: 100%;
         }
 
         .footer-col {
-          text-align: center;         /* text-ഉം center */
+          text-align: left;
         }
 
         .footer-col h4 {
@@ -203,9 +225,14 @@ export default function Footer() {
           width: 100%;
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+          .footer-top {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+          }
           .social-btn { width: 58px; height: 58px; border-radius: 14px; }
-          .footer-links { flex-direction: column; align-items: center; gap: 28px; }
+          .footer-links { flex-direction: column; align-items: flex-start; gap: 40px; }
         }
       `}</style>
     </footer>

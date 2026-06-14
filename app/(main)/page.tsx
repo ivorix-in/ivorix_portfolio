@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 import TestimonialSection from "../(main)/components/TestimonialsSection";
-import PricingSection from "../(main)/components/PricingSection";
 import FAQSection from "../(main)/components/FAQSection";
 
 import Hero from "./components/hero";
@@ -33,14 +32,13 @@ export default function Home() {
 
   return (
     <main>
-      <Navbar/>
-      
+      <Navbar />
+
       <Hero />
       <FeaturesSection />
       <StepsSection />
       <IndustriesSection />
       <TestimonialSection />
-      <PricingSection />
       <FAQSection />
       <Footer />
     </main>

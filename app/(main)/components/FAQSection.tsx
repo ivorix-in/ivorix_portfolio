@@ -8,24 +8,24 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What is an AI Agent?",
-      answer: "An AI Agent is an autonomous software entity designed to perceive its environment, make decisions, and take actions using artificial intelligence to achieve specific goals without manual intervention.",
+      question: "What services does IVORIX offer?",
+      answer: "We offer full-cycle web development, search engine optimization (SEO), digital marketing, custom IT solutions, branding, and e-commerce development tailored to your business needs.",
     },
     {
-      question: "How secure is my data?",
-      answer: "We employ industry-leading end-to-end encryption, regular penetration testing, and comply with standard compliance regulations (including GDPR and SOC2) to ensure your data remains highly secure and private.",
+      question: "How long does a website project take?",
+      answer: "Project timelines vary based on complexity, but a standard corporate website typically takes 4-8 weeks from initial consultation to final launch.",
     },
     {
-      question: "Can I integrate my existing tools?",
-      answer: "Yes, our platform supports seamless integrations with major productivity tools, database providers, and standard software platforms through native integrations and a robust, secure custom API.",
+      question: "Do you provide ongoing support after launch?",
+      answer: "Yes, we provide comprehensive post-launch support, security updates, and performance monitoring to ensure your digital assets run smoothly and efficiently.",
     },
     {
-      question: "Do I need coding skills?",
-      answer: "No, our visual canvas, templates, and pre-built workflows are designed for creators and teams of all technical levels, allowing you to configure and deploy intelligent agents with zero code required.",
+      question: "Can IVORIX handle both design and SEO?",
+      answer: "Absolutely. Our team integrates SEO best practices directly into the design and development phases to ensure your site is built to rank high and perform beautifully.",
     },
     {
-      question: "What kind of support do you offer?",
-      answer: "We offer 24/7 technical support, dedicated customer success managers for enterprise plans, extensive step-by-step documentation, and a vibrant builder community.",
+      question: "How do I get started with IVORIX?",
+      answer: "Simply reach out via our contact form or book a free consultation. We'll discuss your goals and create a custom roadmap for your digital transformation.",
     },
   ];
 
@@ -51,12 +51,11 @@ export default function FAQSection() {
           <h2 className="text-[44px] md:text-[54px] lg:text-[64px] font-[750] leading-[1.05] tracking-[-0.04em] text-[#0A0A0A]">
             Frequently <span className="text-[#4B7EFF]">Asked</span> Questions
             <br />
-            About Our Platform
+            About Our Services
           </h2>
 
           <p className="max-w-[680px] mx-auto mt-6 text-[18px] lg:text-[20px] leading-[1.5] text-[#8B8B8B] font-[450] tracking-[-0.02em]">
-            Explore answers to commonly asked questions about our AI platform,
-            including setup, features, integrations, and support.
+            Explore answers to commonly asked questions about our IT solutions, development processes, and support.
           </p>
         </div>
 
@@ -67,11 +66,10 @@ export default function FAQSection() {
             return (
               <div
                 key={index}
-                className={`w-full rounded-[20px] border transition-all duration-300 overflow-hidden ${
-                  isOpen
-                    ? "border-[#4B7EFF]/35 bg-white shadow-[0_8px_20px_rgba(75,126,255,0.03)]"
-                    : "border-[#EDEDED] bg-[#fbfbfb] hover:bg-white hover:border-gray-300"
-                }`}
+                className={`w-full rounded-2xl border transition-all duration-500 overflow-hidden ${isOpen
+                ? "border-blue-100/70 bg-white shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] -translate-y-1"
+                : "border-slate-100/90 bg-white shadow-sm hover:shadow-[0_20px_48px_-12px_rgba(59,130,246,0.16)] hover:border-blue-100/70 hover:-translate-y-1"
+              }`}
               >
                 {/* Question Trigger */}
                 <button
@@ -85,18 +83,16 @@ export default function FAQSection() {
                   <div className="shrink-0 flex items-center justify-center">
                     <ChevronRight
                       size={20}
-                      className={`text-[#555555] transition-transform duration-300 ${
-                        isOpen ? "rotate-90 text-[#4B7EFF]" : ""
-                      }`}
+                      className={`text-[#555555] transition-transform duration-300 ${isOpen ? "rotate-90 text-[#4B7EFF]" : ""
+                        }`}
                     />
                   </div>
                 </button>
 
                 {/* Answer Expandable Area */}
                 <div
-                  className={`transition-all duration-300 ease-in-out ${
-                    isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                  className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <div className="px-8 pb-7 text-[15px] lg:text-[16px] leading-[1.6] text-[#4B5563] font-[450] tracking-[-0.01em] border-t border-[#F3F4F6] pt-5">
                     {faq.answer}
