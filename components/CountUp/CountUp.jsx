@@ -12,8 +12,8 @@ export default function CountUp({
   className = '',
   startWhen = true,
   separator = '',
-  onStart,
-  onEnd
+  onStart = undefined,
+  onEnd = undefined
 }) {
   const ref = useRef(null);
   const motionValue = useMotionValue(direction === 'down' ? to : from);
