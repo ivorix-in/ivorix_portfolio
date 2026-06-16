@@ -4,6 +4,7 @@ import React, { useEffect, useInsertionEffect, useRef, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Image from "next/image";
 import logo from '@/public/logo.png'
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Keyframe injection — stable, SSR-safe via useInsertionEffect
@@ -353,7 +354,20 @@ function HeroSection() {
                 text-[28px] sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl max-md:px-2">
                 Technology Solutions<br className="hidden sm:block" />
                 {' '}Built for{' '}
-                <span className="text-blue-600">Your Success</span>
+                <span className="text-blue-600">
+                  <ShinyText
+                  text="Your Success"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+                </span>
               </h1>
             </FadeUp>
 

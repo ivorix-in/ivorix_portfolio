@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import CountUp from "@/components/CountUp/CountUp.jsx";
 import Image from "next/image";
 import logo from '@/public/logo.png'
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Global keyframe injection (useInsertionEffect → runs before paint, no flash)
@@ -338,7 +339,20 @@ function HeroSection() {
                 text-[28px] sm:text-4xl md:text-[2.75rem] lg:text-[2.5rem] xl:text-5xl max-md:px-2">
                 We Build Technology
                 <br className="hidden sm:block" /> That Moves Businesses{" "}
-                <span className="text-blue-600">Forward</span>
+                <span className="text-blue-600">
+                  <ShinyText
+                  text="Forward"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+                </span>
               </h1>
             </FadeUp>
 
