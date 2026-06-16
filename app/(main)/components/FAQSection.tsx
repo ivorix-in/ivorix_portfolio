@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -49,7 +50,20 @@ export default function FAQSection() {
         {/* Heading */}
         <div className="text-center mt-8">
           <h2 className="text-[44px] md:text-[54px] lg:text-[64px] max-md:text-[36px] font-[750] leading-[1.05] tracking-[-0.04em] text-[#0A0A0A]">
-            Frequently <span className="text-[#4B7EFF]">Asked</span> Questions
+            Frequently <span className="text-[#4B7EFF]">
+              <ShinyText
+                  text="Asked"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+              </span> Questions
             <br />
             About Our Services
           </h2>

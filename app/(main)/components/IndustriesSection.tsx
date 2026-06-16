@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 export default function IndustriesSection() {
   return (
@@ -20,7 +21,20 @@ export default function IndustriesSection() {
           <h2 className="max-w-4xl text-[58px] max-md:text-[36px] leading-[1.05] font-semibold tracking-[-2px] text-black">
             Businesses We
             <br />
-            <span className="text-[#4d7cff]">Transform</span>
+            <span className="text-[#4d7cff]">
+              <ShinyText
+                  text="Transform"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+            </span>
           </h2>
 
           {/* Subtitle */}

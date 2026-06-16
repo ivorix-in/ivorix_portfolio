@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import GradualBlur from "./GradualBlur/GradualBlur";
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 export default function Footer() {
   return (
@@ -9,23 +10,41 @@ export default function Footer() {
       {/* Heading */}
       <div className="footer-top">
         <div className="flex flex-col gap-3">
-          <h2 className="footer-heading">
-            IVORIX Technologies
-          </h2>
+          <h2 className="footer-heading">IVORIX Technologies</h2>
           <p className="text-[#64748b] text-[16px] md:text-[18px] max-w-[600px] leading-relaxed">
-            Building Secure Digital Experiences through innovative IT solutions, modern web development, and result-driven digital marketing strategies.
+            Building Secure Digital Experiences through innovative IT solutions,
+            modern web development, and result-driven digital marketing
+            strategies.
           </p>
         </div>
 
         {/* Social Icons */}
         <div className="social-icons">
           <a href="#" aria-label="Facebook" className="social-btn">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
           </a>
           <a href="#" aria-label="LinkedIn" className="social-btn">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
               <rect x="2" y="9" width="4" height="12" />
               <circle cx="4" cy="4" r="2" />
@@ -37,7 +56,16 @@ export default function Footer() {
             </svg>
           </a>
           <a href="#" aria-label="Instagram" className="social-btn">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -49,38 +77,66 @@ export default function Footer() {
       {/* Links Grid — centered */}
       <div className="footer-links-section">
         <div className="footer-links">
-          <div className="footer-col" style={{ maxWidth: '320px' }}>
+          <div className="footer-col" style={{ maxWidth: "320px" }}>
             <h4>About IVORIX</h4>
             <p className="text-[#64748b] text-[14px] leading-relaxed mt-2">
-              Building Secure Digital Experiences through innovative technology solutions and digital transformation. We help businesses scale in the digital era.
+              Building Secure Digital Experiences through innovative technology
+              solutions and digital transformation. We help businesses scale in
+              the digital era.
             </p>
           </div>
           <div className="footer-col">
             <h4>Quick Links</h4>
             <ul>
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/services">Services</Link></li>
-              <li><Link href="/portfolio">Portfolio</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/about">About Us</Link>
+              </li>
+              <li>
+                <Link href="/services">Services</Link>
+              </li>
+              <li>
+                <Link href="/portfolio">Portfolio</Link>
+              </li>
+              <li>
+                <Link href="/contact">Contact</Link>
+              </li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Services</h4>
             <ul>
-              <li><Link href="#">Web Development</Link></li>
-              <li><Link href="#">App Development</Link></li>
-              <li><Link href="#">Digital Marketing</Link></li>
-              <li><Link href="#">SEO Services</Link></li>
-              <li><Link href="#">IT Solutions</Link></li>
+              <li>
+                <Link href="#">Web Development</Link>
+              </li>
+              <li>
+                <Link href="#">App Development</Link>
+              </li>
+              <li>
+                <Link href="#">Digital Marketing</Link>
+              </li>
+              <li>
+                <Link href="#">SEO Services</Link>
+              </li>
+              <li>
+                <Link href="#">IT Solutions</Link>
+              </li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Contact Us</h4>
             <ul>
-              <li><a href="mailto:info@ivorix.in">Email: info@ivorix.in</a></li>
-              <li className="text-[#64748b] text-[14px]">Phone: +91 8111903156</li>
-              <li className="text-[#64748b] text-[14px]">Alt: +91 9072909294</li>
+              <li>
+                <a href="mailto:info@ivorix.in">Email: info@ivorix.in</a>
+              </li>
+              <li className="text-[#64748b] text-[14px]">
+                Phone: +91 8111903156
+              </li>
+              <li className="text-[#64748b] text-[14px]">
+                Alt: +91 9072909294
+              </li>
               <li className="text-[#64748b] text-[14px] mt-1">Kerala, India</li>
             </ul>
           </div>
@@ -89,7 +145,20 @@ export default function Footer() {
 
       {/* Brand name — blur at BOTTOM of this section */}
       <div className="footer-brand-wrapper">
-        <div className="footer-brand">IVORIX </div>
+        <div className="footer-brand">
+          <ShinyText
+            text="IVORIX"
+            speed={2}
+            delay={0}
+            color="#000000"
+            shineColor="#666666"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </div>
         {/* Blur is at bottom, fading out the brand text */}
         <GradualBlur
           target="parent"
@@ -101,7 +170,7 @@ export default function Footer() {
           opacity={1}
         />
       </div>
-{/* 
+      {/* 
       <div className="flex flex-col items-center justify-center pb-8 pt-2 gap-2 text-[#64748b] text-[14px]">
         <p className="font-semibold text-[#0f172a] text-[16px]">Innovate • Develop • Elevate</p>
         <p>© 2026 IVORIX Technologies. All Rights Reserved.</p>
@@ -153,7 +222,9 @@ export default function Footer() {
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           text-decoration: none;
-          transition: background 0.2s, color 0.2s;
+          transition:
+            background 0.2s,
+            color 0.2s;
         }
 
         .social-btn:hover {
@@ -238,12 +309,23 @@ export default function Footer() {
           .social-icons {
             flex-wrap: wrap;
           }
-          .social-btn { width: 48px; height: 48px; border-radius: 12px; }
-          .social-btn svg { width: 20px; height: 20px; }
+          .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+          }
+          .social-btn svg {
+            width: 20px;
+            height: 20px;
+          }
           .footer-links-section {
             padding: 0 16px 16px;
           }
-          .footer-links { flex-direction: column; align-items: flex-start; gap: 32px; }
+          .footer-links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+          }
         }
       `}</style>
     </footer>

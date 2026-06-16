@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Lightbulb, Target, Plug } from 'lucide-react';
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 const StepsSection = () => {
   return (
@@ -14,7 +15,18 @@ const StepsSection = () => {
             Simple{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-extrabold">
-                Steps
+                <ShinyText
+                  text="Steps"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
               </span>
 
               {/* Selection Box */}

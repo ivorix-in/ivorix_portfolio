@@ -1,6 +1,7 @@
 "use client";
 
 import { Layers, BarChart, Cpu, Target, ShieldCheck } from "lucide-react";
+import ShinyText from "@/components/ShinyText/ShinyText";
 
 export default function TestimonialSection() {
   const testimonials = [
@@ -54,7 +55,20 @@ export default function TestimonialSection() {
 
             {/* Heading */}
             <h2 className="mt-7 text-[46px] md:text-[56px] lg:text-[68px] max-md:text-[36px] font-[800] leading-[1.04] tracking-[-0.045em] text-[#0f172a]">
-              Why Businesses <span className="text-[#4B7EFF] bg-gradient-to-r from-[#4B7EFF] to-[#3B82F6] bg-clip-text text-transparent">Trust</span>
+              Why Businesses <span className="text-[#4B7EFF] bg-gradient-to-r from-[#4B7EFF] to-[#3B82F6] bg-clip-text text-transparent">
+                <ShinyText
+                  text="Trust"
+                  speed={2}
+                  delay={0}
+                  color="#2563eb"
+                  shineColor="#60a5fa"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+              </span>
               <span className="block mt-1 md:mt-2">IVORIX</span>
             </h2>
           </div>
