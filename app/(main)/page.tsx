@@ -9,15 +9,21 @@ import StepsSection from "./components/StepsSection";
 import IndustriesSection from "./components/IndustriesSection";
 import AboutSection from "./components/AboutSection";
 
+import LightPillar from "@/components/LightPillar/LightPillar";
+import Aurora from "@/components/Aurora/Aurora";
+import BlobCursor from "@/components/BlobCursor/BlobCursor"; 
+
 export default function Home() {
   return (
     <main>
       <Navbar />
-
       <Hero />
+      <Aurora />
       <FeaturesSection />
+      {/* <BlobCursor /> */}
       <StepsSection />
       <IndustriesSection />
+      <LightPillar />
       <TestimonialSection />
       <FAQSection />
       <Footer />
