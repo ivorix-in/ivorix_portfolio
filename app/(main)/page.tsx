@@ -12,6 +12,7 @@ import AboutSection from "./components/AboutSection";
 import LightPillar from "@/components/LightPillar/LightPillar";
 import Aurora from "@/components/Aurora/Aurora";
 import BlobCursor from "@/components/BlobCursor/BlobCursor"; 
+import Ballpit from "@/components/Ballpit/Ballpit";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <LightPillar />
       <TestimonialSection />
       <FAQSection />
+      {/* <Ballpit /> */}
       <Footer />
     </main>
   );
