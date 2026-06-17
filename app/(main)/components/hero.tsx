@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Iridescence from "@/components/Iridescence/Iridescence";
 
 
 export default function Hero() {
@@ -9,6 +10,14 @@ export default function Hero() {
 
   return (
     <section className="hero">
+       <div className="iridescence-bg">
+    <Iridescence
+      color={[0.5, 0.6, 0.8]}
+      mouseReact={true}
+      amplitude={0.1}
+      speed={1}
+    />
+  </div>
       {/* Ambient background glows */}
       <div className="hero-glow-1"></div>
       <div className="hero-glow-2"></div>
@@ -64,87 +73,6 @@ export default function Hero() {
           </Link> */}
         </div>
 
-        {/* VISUAL */}
-        <div className="hero-visual">
-
-          {/* LEFT CARD */}
-          {/* <div className="left-col">
-
-            <div className="card growth-card">
-              <div className="card-label">Growth</div>
-
-              <div className="card-amount">
-                $1,823.00
-              </div>
-
-              <div className="chart-bars">
-                <div className="bar" style={{ height: "40%" }} />
-                <div className="bar" style={{ height: "65%" }} />
-                <div className="bar" style={{ height: "50%" }} />
-                <div className="bar active" style={{ height: "90%" }} />
-                <div className="bar" style={{ height: "70%" }} />
-                <div className="bar" style={{ height: "55%" }} />
-              </div>
-            </div>
-
-          </div> */}
-
-          {/* CENTER IMAGE */}
-
-
-          {/*          
-          <div className="right-col">
-
-            <div className="card cal-card">
-
-              <div className="cal-header">
-                January 2026
-              </div>
-
-              <div className="cal-grid">
-
-                {dayLabels.map((d, i) => (
-                  <div
-                    key={i}
-                    className={`cal-day-label ${
-                      i >= 5 ? "red" : ""
-                    }`}
-                  >
-                    {d}
-                  </div>
-                ))}
-
-                <div />
-                <div />
-
-                {Array.from({ length: 31 }, (_, i) => {
-                  const n = i + 1;
-
-                  const isRed = [
-                    4, 5, 11, 12, 18, 19, 25, 26,
-                  ].includes(n);
-
-                  const isActive = n === 20;
-
-                  return (
-                    <div
-                      key={n}
-                      className={`cal-day 
-                      ${isRed ? "red" : ""}
-                      ${isActive ? "active" : ""}
-                    `}
-                    >
-                      {n}
-                    </div>
-                  );
-                })}
-
-              </div>
-            </div>
-
-          </div> */}
-        </div>
-
         {/* TICKER */}
         <div className="ticker-outer">
           <div className="ticker-track">
@@ -173,17 +101,24 @@ export default function Hero() {
           box-sizing: border-box;
         }
 
-   .hero {
+        .hero {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
   padding-top: 100px;
+  background: #ffffff;
+}
 
-  background-image: url("/hero-bg.png");
-  background-size: cover;
-  background-position: center top;
-   background-repeat: no-repeat;
-  
+.iridescence-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
 }
 
         .hero::before {
