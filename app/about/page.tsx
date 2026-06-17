@@ -7,7 +7,6 @@ export default function AboutPage() {
   return (
     <main>
       <Navbar />
-
       <AboutSection  />
       <Footer />
     </main>

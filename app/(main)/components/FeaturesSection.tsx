@@ -4,6 +4,8 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Zap, GitFork, TrendingUp, Terminal } from "lucide-react";
 import ShinyText from "@/components/ShinyText/ShinyText";
+import Grainient from "@/components/Grainient/Grainient";
+import Iridescence from "@/components/Iridescence/Iridescence";
 
 export default function FeaturesSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,8 +23,11 @@ export default function FeaturesSection() {
   const fade = `transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`;
 
   return (
-    <section ref={ref} className="py-16 max-md:py-10 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+  ref={ref}
+  className="relative py-16 max-md:py-10 overflow-hidden"
+>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
           {/* Badge */}
