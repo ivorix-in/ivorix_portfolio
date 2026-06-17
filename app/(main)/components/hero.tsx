@@ -1,23 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import Iridescence from "@/components/Iridescence/Iridescence";
-
 
 export default function Hero() {
   const dayLabels = ["M", "T", "W", "T", "F", "S", "S"];
 
   return (
     <section className="hero">
-       <div className="iridescence-bg">
-    <Iridescence
-      color={[0.5, 0.6, 0.8]}
-      mouseReact={true}
-      amplitude={0.1}
-      speed={1}
-    />
-  </div>
       {/* Ambient background glows */}
       <div className="hero-glow-1"></div>
       <div className="hero-glow-2"></div>
